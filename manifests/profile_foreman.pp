@@ -6,7 +6,6 @@ class profile_foreman (
   class { '::puppet':
     runmode                     => 'none',
     server                      => true,
-    server_external_nodes       => '',
     server_reports              => 'foreman',
   } ->
   class { '::foreman':
@@ -32,11 +31,6 @@ class profile_foreman (
     puppetca  => true,
     puppetrun => true,
     tftp      => false,
-  } ->
-  cron { 'foreman-push-facts':
-    command => "/usr/bin/ruby /etc/puppet/node.rb --push-facts &> /dev/null",
-    user    => puppet,
-    minute  => '*/2'
   }
 
   ::foreman::plugin { 'default_hostgroup': }
