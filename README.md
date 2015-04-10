@@ -13,10 +13,6 @@
     
 ## Interfaces
 
-### puppetdb
-
-http://192.168.21.140:8080
-
 ### foreman
 
-http://192.168.21.141
+http://192.168.21.130
