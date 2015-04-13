@@ -32,14 +32,8 @@ class profile_foreman (
     puppetrun => true,
     tftp      => false,
   }
-
   ::foreman::plugin { 'default_hostgroup': }
-  ::foreman::plugin { 'hooks': }
   ::foreman::plugin { 'puppetdb':
     package => 'ruby193-rubygem-puppetdb_foreman',
   }
-  ::foreman::plugin { 'tasks':
-    package => 'ruby193-rubygem-foreman-tasks'
-  }
-  ::foreman::plugin { 'templates': }
 }
