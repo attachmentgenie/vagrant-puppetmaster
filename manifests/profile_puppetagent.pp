@@ -1,6 +1,6 @@
 class profile_puppetagent (
-  $ca_server    = 'puppet.foreman.vagrant',
-  $puppetmaster = 'puppet.foreman.vagrant',
+  $ca_server    = 'puppet',
+  $puppetmaster = 'puppet',
 ) {
   class { '::puppet':
     ca_server      => $ca_server,

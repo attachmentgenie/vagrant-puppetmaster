@@ -21,8 +21,7 @@ Vagrant.configure("2") do |config|
     default_env = 'production'
     ext_env = ENV['VAGRANT_PUPPET_ENV']
     env = ext_env ? ext_env : default_env
-    orchestrate = 'puppet.foreman.vagrant'
-    PUPPETAGENT = "sudo puppet agent -t --environment #{env} --server #{orchestrate}; echo $?"
+    PUPPETAGENT = "sudo puppet agent -t --environment #{env} --ca_server puppet.foreman.vagrant; echo $?"
 
 ###############################################################################
 # Global VirtualBox settings                                                  #
@@ -110,5 +109,13 @@ Vagrant.configure("2") do |config|
       node2_config.vm.network :private_network, ip: "192.168.21.151"
       node2_config.vm.provision :hosts
       node2_config.vm.provision 'shell', inline: PUPPETAGENT
+    end
+
+    config.vm.define :node3 do |node3_config|
+      node3_config.vm.host_name = "node3.foreman.vagrant"
+      node3_config.vm.network :forwarded_port, guest: 22, host: 2152
+      node3_config.vm.network :private_network, ip: "192.168.21.152"
+      node3_config.vm.provision :hosts
+      node3_config.vm.provision 'shell', inline: PUPPETAGENT
     end
 end

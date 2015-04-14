@@ -4,10 +4,10 @@ class profile_puppetca (
   $foreman_repo           = 'stable'
 ) {
   class { '::puppet':
-    runmode        => 'none',
-    server         => true,
+    runmode               => 'none',
+    server                => true,
     server_external_nodes => '',
-    server_reports => 'foreman',
+    server_reports        => 'foreman',
   } ->
   class { '::foreman':
     admin_password => $foreman_admin_password,

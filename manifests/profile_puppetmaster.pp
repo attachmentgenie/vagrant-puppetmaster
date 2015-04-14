@@ -1,13 +1,16 @@
 class profile_puppetmaster (
-  $ca_server = 'puppet.foreman.vagrant'
+  $ca_server    = 'puppet',
+  $puppetmaster = 'puppet',
 ) {
   class { '::puppet':
-    runmode        => 'none',
-    server         => true,
-    server_ca      => false,
-    ca_server      => $ca_server,
-    server_foreman_url => "https://$ca_server",
-    server_reports => 'foreman',
+    runmode               => 'none',
+    server                => true,
+    server_ca             => false,
+    ca_server             => $ca_server,
+    puppetmaster          => $puppetmaster,
+    server_external_nodes => '',
+    server_foreman_url    => "https://$ca_server",
+    server_reports        => 'foreman',
   } ->
   class { '::foreman_proxy':
     foreman_base_url => "https://$ca_server",

@@ -1,4 +1,4 @@
 ---
 classes:
   - role_node
-profile_puppetagent::puppetmaster: puppetmaster2.foreman.vagrant
+profile_puppetagent::puppetmaster: puppetmaster1.foreman.vagrant
