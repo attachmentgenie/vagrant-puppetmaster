@@ -1,31 +1,16 @@
 class profile_puppetca (
-  $foreman_admin_password = 'secret',
-  $foreman_host           = $::fqdn,
-  $foreman_repo           = 'stable'
+  $foreman = "${::fqdn}",
 ) {
   class { '::puppet':
     runmode               => 'none',
     server                => true,
     server_external_nodes => '',
     server_reports        => 'foreman',
-  } ->
-  class { '::foreman':
-    admin_password => $foreman_admin_password,
-    apipie_task    => 'apipie:cache',
-    foreman_url    => $foreman_host,
-    unattended     => false,
-    authentication => true,
-    passenger      => true,
-    ssl            => true,
-    selinux        => false,
-    repo           => $foreman_repo,
-  } ->
-  class { '::foreman::cli':
-    foreman_url => $foreman_host,
-    username    => 'admin',
-    password    => $foreman_admin_password,
+    server_foreman_url    => "http://${foreman}",
   } ->
   class { '::foreman_proxy':
+    foreman_base_url => "http://${foreman}",
+    trusted_hosts    => [$::fqdn, $foreman],
     bmc       => false,
     dhcp      => false,
     dns       => false,
@@ -38,8 +23,4 @@ class profile_puppetca (
     user    => puppet,
     minute  => '*/2'
   }
-  #::foreman::plugin { 'default_hostgroup': }
-  #::foreman::plugin { 'puppetdb':
-  #  package => 'ruby193-rubygem-puppetdb_foreman',
-  #}
 }

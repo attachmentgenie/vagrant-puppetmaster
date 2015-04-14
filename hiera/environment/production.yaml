@@ -1,5 +1,7 @@
 ---
 profile_firewall::ensure: stopped
+profile_foreman::ca_server: puppet.foreman.vagrant
 profile_puppetagent::ca_server: puppet.foreman.vagrant
 profile_puppetmaster::ca_server: puppet.foreman.vagrant
+profile_foreman::puppetmaster: puppet.foreman.vagrant
 profile_puppetmaster::puppetmaster: puppet.foreman.vagrant
