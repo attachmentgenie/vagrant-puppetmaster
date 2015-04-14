@@ -95,6 +95,14 @@ Vagrant.configure("2") do |config|
       puppetmaster2_config.vm.provision 'shell', inline: PUPPETAGENT
     end
 
+    config.vm.define :puppetmaster do |puppetmaster_config|
+      puppetmaster_config.vm.host_name = "puppetmaster.foreman.vagrant"
+      puppetmaster_config.vm.network :forwarded_port, guest: 22, host: 2142
+      puppetmaster_config.vm.network :private_network, ip: "192.168.21.142"
+      puppetmaster_config.vm.provision :hosts
+      puppetmaster_config.vm.provision 'shell', inline: PUPPETAGENT
+    end
+
     config.vm.define :node1 do |node1_config|
       node1_config.vm.host_name = "node1.foreman.vagrant"
       node1_config.vm.network :forwarded_port, guest: 22, host: 2150

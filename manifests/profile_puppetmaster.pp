@@ -1,5 +1,6 @@
 class profile_puppetmaster (
   $ca_server    = 'puppet',
+  $foreman      = 'foreman',
   $puppetmaster = 'puppet',
 ) {
   class { '::puppet':
@@ -13,8 +14,8 @@ class profile_puppetmaster (
     server_reports        => 'foreman',
   } ->
   class { '::foreman_proxy':
-    foreman_base_url => "https://$ca_server",
-    trusted_hosts    => [$::fqdn, $ca_server],
+    foreman_base_url => "http://$foreman",
+    trusted_hosts    => [$::fqdn, $foreman],
     bmc       => false,
     dhcp      => false,
     dns       => false,
