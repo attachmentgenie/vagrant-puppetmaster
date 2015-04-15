@@ -2,3 +2,4 @@
 classes:
   - role_puppetca
 profile_puppetca::foreman: foreman.foreman.vagrant
+profile_puppetca::puppetdb: puppetdb.foreman.vagrant

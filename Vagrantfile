@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
     ext_env = ENV['VAGRANT_PUPPET_ENV']
     env = ext_env ? ext_env : default_env
     PUPPETAGENT = "sudo puppet agent -t --environment #{env} --ca_server puppet.foreman.vagrant; echo $?"
-    PUPPETAGENTNODE = "sudo puppet agent -t --environment #{env} --server puppetmaster1.foreman.vagrant --ca_server puppet.foreman.vagrant; echo $?"
+    PUPPETAGENTNODE = "sudo puppet agent -t --environment #{env} --server puppet.foreman.vagrant --ca_server puppet.foreman.vagrant; echo $?"
 
 ###############################################################################
 # Global VirtualBox settings                                                  #
@@ -98,32 +98,32 @@ Vagrant.configure("2") do |config|
 
     config.vm.define :puppetmaster do |puppetmaster_config|
       puppetmaster_config.vm.host_name = "puppetmaster.foreman.vagrant"
-      puppetmaster_config.vm.network :forwarded_port, guest: 22, host: 2142
-      puppetmaster_config.vm.network :private_network, ip: "192.168.21.142"
+      puppetmaster_config.vm.network :forwarded_port, guest: 22, host: 2150
+      puppetmaster_config.vm.network :private_network, ip: "192.168.21.150"
       puppetmaster_config.vm.provision :hosts
       puppetmaster_config.vm.provision 'shell', inline: PUPPETAGENT
     end
 
     config.vm.define :node1 do |node1_config|
       node1_config.vm.host_name = "node1.foreman.vagrant"
-      node1_config.vm.network :forwarded_port, guest: 22, host: 2150
-      node1_config.vm.network :private_network, ip: "192.168.21.150"
+      node1_config.vm.network :forwarded_port, guest: 22, host: 2160
+      node1_config.vm.network :private_network, ip: "192.168.21.160"
       node1_config.vm.provision :hosts
       node1_config.vm.provision 'shell', inline: PUPPETAGENT
     end
 
     config.vm.define :node2 do |node2_config|
       node2_config.vm.host_name = "node2.foreman.vagrant"
-      node2_config.vm.network :forwarded_port, guest: 22, host: 2151
-      node2_config.vm.network :private_network, ip: "192.168.21.151"
+      node2_config.vm.network :forwarded_port, guest: 22, host: 2161
+      node2_config.vm.network :private_network, ip: "192.168.21.161"
       node2_config.vm.provision :hosts
       node2_config.vm.provision 'shell', inline: PUPPETAGENT
     end
 
     config.vm.define :node3 do |node3_config|
       node3_config.vm.host_name = "node3.foreman.vagrant"
-      node3_config.vm.network :forwarded_port, guest: 22, host: 2152
-      node3_config.vm.network :private_network, ip: "192.168.21.152"
+      node3_config.vm.network :forwarded_port, guest: 22, host: 2162
+      node3_config.vm.network :private_network, ip: "192.168.21.162"
       node3_config.vm.provision :hosts
       node3_config.vm.provision 'shell', inline: PUPPETAGENTNODE
     end

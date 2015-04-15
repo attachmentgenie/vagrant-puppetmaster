@@ -28,8 +28,7 @@ class profile_foreman (
     username    => 'admin',
     password    => $foreman_admin_password,
   }
-  #::foreman::plugin { 'default_hostgroup': }
-  #::foreman::plugin { 'puppetdb':
-  #  package => 'ruby193-rubygem-puppetdb_foreman',
-  #}
+  ::foreman::plugin { 'puppetdb':
+    package => 'ruby193-rubygem-puppetdb_foreman',
+  }
 }

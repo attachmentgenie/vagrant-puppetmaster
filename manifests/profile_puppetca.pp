@@ -1,12 +1,15 @@
 class profile_puppetca (
-  $foreman = "${::fqdn}",
+  $foreman  = $::fqdn,
+  $puppetdb = $::fqdn,
 ) {
   class { '::puppet':
-    runmode               => 'none',
-    server                => true,
-    server_external_nodes => '',
-    server_reports        => 'foreman',
-    server_foreman_url    => "http://${foreman}",
+    runmode                      => 'none',
+    server                       => true,
+    server_external_nodes        => '',
+    server_foreman_url           => "http://${foreman}",
+    server_puppetdb_host         => $puppetdb,
+    server_reports               => 'foreman',
+    server_storeconfigs_backend  => 'puppetdb',
   } ->
   class { '::foreman_proxy':
     foreman_base_url => "http://${foreman}",
