@@ -14,7 +14,7 @@ class profile_haproxy () {
   }
   haproxy::balancermember { 'master02':
     listening_service => 'puppetmaster',
-    server_names      => 'puppetmaster1.foreman.vagrant',
+    server_names      => 'puppetmaster2.foreman.vagrant',
     ipaddresses       => '192.168.21.141',
     ports             => '8140',
     options           => 'check',
