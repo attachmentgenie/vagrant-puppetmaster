@@ -14,12 +14,12 @@ class profile_puppetca (
   class { '::foreman_proxy':
     foreman_base_url => "http://${foreman}",
     trusted_hosts    => [$::fqdn, $foreman],
-    bmc       => false,
-    dhcp      => false,
-    dns       => false,
-    puppetca  => true,
-    puppetrun => true,
-    tftp      => false,
+    bmc              => false,
+    dhcp             => false,
+    dns              => false,
+    puppetca         => true,
+    puppetrun        => true,
+    tftp             => false,
   } ->
   cron { 'foreman-push-facts':
     command => "/usr/bin/ruby /etc/puppet/node.rb --push-facts &> /dev/null",

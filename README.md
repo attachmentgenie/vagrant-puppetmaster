@@ -9,10 +9,9 @@
 ## Setup
     librarian-puppet install
     vagrant up
-    vagrant ssh
     
 ## Interfaces
 
 ### foreman
 
-http://192.168.21.130
+http://192.168.21.132
