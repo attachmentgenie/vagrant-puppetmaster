@@ -45,14 +45,14 @@ Vagrant.configure("2") do |config|
       puppet_config.vm.synced_folder 'modules/', '/etc/puppet/environments/production/modules'
       puppet_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
       puppet_config.vm.provision :hosts
-      puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/hiera.yaml /etc/puppet/hiera.yaml'
-      puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/autosign.conf /etc/puppet/autosign.conf'
+      puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
+      puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/autosign.conf /etc/puppet/autosign.conf'
       puppet_config.vm.provision :puppet do |puppet|
           puppet.options = "--environment #{env}"
           puppet.manifests_path = "manifests"
           puppet.manifest_file  = ""
           puppet.module_path = "modules"
-          puppet.hiera_config_path = "hiera.yaml"
+          puppet.hiera_config_path = "files/hiera.yaml"
       end
     end
 
@@ -80,7 +80,8 @@ Vagrant.configure("2") do |config|
       puppetmaster1_config.vm.synced_folder 'modules/', '/etc/puppet/modules'
       puppetmaster1_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
       puppetmaster1_config.vm.provision :hosts
-      puppetmaster1_config.vm.provision :shell, inline: 'sudo cp /vagrant/hiera.yaml /etc/puppet/hiera.yaml'
+      puppetmaster1_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
+      puppetmaster1_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/puppetmaster1/puppet.conf /etc/puppet/puppet.conf'
       puppetmaster1_config.vm.provision 'shell', inline: PUPPET
     end
 
@@ -92,7 +93,8 @@ Vagrant.configure("2") do |config|
       puppetmaster2_config.vm.synced_folder 'modules/', '/etc/puppet/modules'
       puppetmaster2_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
       puppetmaster2_config.vm.provision :hosts
-      puppetmaster2_config.vm.provision :shell, inline: 'sudo cp /vagrant/hiera.yaml /etc/puppet/hiera.yaml'
+      puppetmaster2_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
+      puppetmaster2_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/puppetmaster2/puppet.conf /etc/puppet/puppet.conf'
       puppetmaster2_config.vm.provision 'shell', inline: PUPPET
     end
 

@@ -34,4 +34,11 @@ class profile_puppetmaster (
     user    => puppet,
     minute  => '*/2'
   }
+  @@haproxy::balancermember { 'haproxy':
+    listening_service => 'puppetmaster',
+    server_names      => $::hostname,
+    ipaddresses       => $::ipaddress_eth1,
+    ports             => '8140',
+    options           => 'check',
+  }
 }
