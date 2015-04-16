@@ -34,7 +34,7 @@ class profile_puppetmaster (
     user    => puppet,
     minute  => '*/2'
   }
-  @@haproxy::balancermember { 'haproxy':
+  @@haproxy::balancermember { "haproxy-${::hostname}":
     listening_service => 'puppetmaster',
     server_names      => $::hostname,
     ipaddresses       => $::ipaddress_eth1,
