@@ -1,8 +1,11 @@
 ---
 profile_foreman::ca_server: puppet.foreman.vagrant
 profile_foreman::puppetmaster: puppet.foreman.vagrant
-profile_puppetagent::ca_server: puppet.foreman.vagrant
+profile_puppetagent::ca_server: puppetmaster.foreman.vagrant
 profile_puppetagent::puppetmaster: puppetmaster.foreman.vagrant
+profile_puppetdb::ca_server: puppet.foreman.vagrant
+profile_puppetdb::puppetmaster: puppet.foreman.vagrant
+profile_puppetca::certname: puppetmaster.foreman.vagrant
 profile_puppetca::foreman: foreman.foreman.vagrant
 profile_puppetca::puppetdb: puppetdb.foreman.vagrant
 profile_puppetmaster::ca_server: puppet.foreman.vagrant

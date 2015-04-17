@@ -9,7 +9,6 @@ class profile_puppetmaster (
     ca_server                    => $ca_server,
     dns_alt_names                => [$::fqdn,$certname],
     puppetmaster                 => $puppetmaster,
-    runmode                      => 'none',
     server                       => true,
     server_ca                    => false,
     server_certname              => $certname,
@@ -34,7 +33,7 @@ class profile_puppetmaster (
     user    => puppet,
     minute  => '*/2'
   }
-  @@haproxy::balancermember { "haproxy-${::hostname}":
+  @@haproxy::balancermember { "puppetmaster-${::hostname}":
     listening_service => 'puppetmaster',
     server_names      => $::hostname,
     ipaddresses       => $::ipaddress_eth1,

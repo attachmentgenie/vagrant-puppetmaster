@@ -1,9 +1,10 @@
 class profile_puppetca (
+  $certname = 'puppet',
   $foreman  = $::fqdn,
   $puppetdb = $::fqdn,
 ) {
   class { '::puppet':
-    runmode                      => 'none',
+    dns_alt_names                => ['puppet',$::fqdn,$certname],
     server                       => true,
     server_external_nodes        => '',
     server_foreman_url           => "http://${foreman}",
@@ -25,5 +26,12 @@ class profile_puppetca (
     command => "/usr/bin/ruby /etc/puppet/node.rb --push-facts &> /dev/null",
     user    => puppet,
     minute  => '*/2'
+  }
+  @@haproxy::balancermember { "puppetca-${::hostname}":
+    listening_service => 'puppetca',
+    server_names      => $::hostname,
+    ipaddresses       => $::ipaddress_eth1,
+    ports             => '8140',
+    options           => 'check',
   }
 }

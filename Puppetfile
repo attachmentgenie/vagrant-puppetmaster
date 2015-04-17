@@ -6,6 +6,7 @@ forge "https://forgeapi.puppetlabs.com"
 #mod 'puppetlabs/concat'
 mod 'puppetlabs/firewall'
 mod 'puppetlabs/haproxy'
+mod 'puppetlabs/ntp'
 #mod 'puppetlabs/postgresql'
 mod 'puppetlabs/puppetdb'
 #mod 'puppetlabs/stdlib'
