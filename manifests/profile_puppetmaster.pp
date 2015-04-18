@@ -11,6 +11,7 @@ class profile_puppetmaster (
     puppetmaster                 => $puppetmaster,
     server                       => true,
     server_ca                    => false,
+    server_ca_proxy              => "https://${ca_server}:8140",
     server_certname              => $certname,
     server_external_nodes        => '',
     server_foreman_url           => "http://${foreman}",

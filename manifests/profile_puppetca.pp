@@ -4,6 +4,7 @@ class profile_puppetca (
   $puppetdb = $::fqdn,
 ) {
   class { '::puppet':
+    allow_any_crl_auth           => true,
     dns_alt_names                => ['puppet',$::fqdn,$certname],
     server                       => true,
     server_external_nodes        => '',
@@ -26,12 +27,5 @@ class profile_puppetca (
     command => "/usr/bin/ruby /etc/puppet/node.rb --push-facts &> /dev/null",
     user    => puppet,
     minute  => '*/2'
-  }
-  @@haproxy::balancermember { "puppetca-${::hostname}":
-    listening_service => 'puppetca',
-    server_names      => $::hostname,
-    ipaddresses       => $::ipaddress_eth1,
-    ports             => '8140',
-    options           => 'check',
   }
 }
