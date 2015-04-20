@@ -7,7 +7,7 @@ class profile_puppetmaster (
 ) {
   class { '::puppet':
     ca_server                    => $ca_server,
-    dns_alt_names                => [$::fqdn,$certname],
+    dns_alt_names                => ['puppet',$puppetmaster,'puppetmaster',$certname,$::hostname,$::fqdn],
     puppetmaster                 => $puppetmaster,
     server                       => true,
     server_ca                    => false,
