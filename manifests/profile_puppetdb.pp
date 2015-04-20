@@ -9,7 +9,7 @@ class profile_puppetdb (
     server_reports => 'foreman',
   } ->
   class { '::puppetdb':
-    listen_address     => $::ipaddress_eth1,
-    manage_firewall    => false,
+    listen_address  => $::fqdn,
+    manage_firewall => false,
   }
 }
