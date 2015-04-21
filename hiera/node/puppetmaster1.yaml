@@ -1,3 +1,9 @@
 ---
 classes:
   - role_puppetmaster
+profile_puppet::dns_alt_names:
+  - puppetmaster
+  - puppetmaster.foreman.vagrant
+profile_puppet::server: true
+profile_puppet::server_ca: false
+profile_puppet::server_foreman: true

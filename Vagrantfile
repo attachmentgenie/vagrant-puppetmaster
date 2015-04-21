@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider 'virtualbox' do |v|
     v.customize [
       'modifyvm', :id,
-      '--groups', '/Vagrant/foreman'
+      '--groups', '/Vagrant/puppetmaster'
     ]
     end
 
@@ -47,7 +47,6 @@ Vagrant.configure("2") do |config|
       puppet_config.vm.provision :hosts
       puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
       puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/autosign.conf /etc/puppet/autosign.conf'
-      puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/puppet/puppet.conf /etc/puppet/puppet.conf'
       puppet_config.vm.provision :puppet do |puppet|
           puppet.options = "--environment #{env}"
           puppet.manifests_path = "manifests"

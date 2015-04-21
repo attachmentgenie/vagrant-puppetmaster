@@ -1,11 +1,9 @@
 class profile_puppetca (
-  $certname = 'puppet',
   $foreman  = $::fqdn,
   $puppetdb = $::fqdn,
 ) {
   class { '::puppet':
     allow_any_crl_auth           => true,
-    dns_alt_names                => ['puppet',$::fqdn,'puppetmaster',$certname],
     server                       => true,
     server_external_nodes        => '',
     server_foreman_url           => "http://${foreman}",

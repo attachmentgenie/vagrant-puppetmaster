@@ -1,12 +1,10 @@
 class profile_foreman (
-  $ca_server              = 'puppet',
   $foreman_admin_password = 'secret',
   $foreman_host           = $::fqdn,
   $foreman_repo           = 'stable',
   $puppetmaster           = 'puppet',
 ) {
   class { '::puppet':
-    ca_server      => $ca_server,
     puppetmaster   => $puppetmaster,
     server         => false,
     server_reports => 'foreman',

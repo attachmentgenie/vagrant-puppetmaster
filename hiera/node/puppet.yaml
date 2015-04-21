@@ -1,3 +1,6 @@
 ---
 classes:
   - role_puppetca
+profile_foreman_proxy::puppetca: true
+profile_puppet::allow_any_crl_auth: true
+profile_puppet::server: true
