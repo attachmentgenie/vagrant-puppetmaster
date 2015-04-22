@@ -1,13 +1,11 @@
 class profile_puppetdb (
-  $puppetmaster = 'puppet',
+  $listen_address     = '0.0.0.0',
+  $manage_firewall    = false,
+  $ssl_listen_address = '0.0.0.0',
 ) {
-  class { '::puppet':
-    puppetmaster   => $puppetmaster,
-    server         => false,
-    server_reports => 'foreman',
-  } ->
   class { '::puppetdb':
-    listen_address  => $::fqdn,
-    manage_firewall => false,
+    listen_address     => $listen_address,
+    manage_firewall    => $manage_firewall,
+    ssl_listen_address => $ssl_listen_address,
   }
 }

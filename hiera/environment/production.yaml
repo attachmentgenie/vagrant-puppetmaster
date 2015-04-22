@@ -1,9 +1,5 @@
 ---
 profile_foreman_proxy::foreman_host: foreman.foreman.vagrant
-profile_puppetca::foreman: foreman.foreman.vagrant
-profile_puppetca::puppetdb: puppetdb.foreman.vagrant
-profile_puppetdb::puppetmaster: puppet.foreman.vagrant
 profile_puppet::puppetmaster: puppet.foreman.vagrant
-profile_puppet::server_ca_proxy: "https://puppet.foreman.vagrant:8140"
 profile_puppet::server_foreman_url: "http://foreman.foreman.vagrant"
 profile_puppet::server_puppetdb_host: puppetdb.foreman.vagrant

@@ -2,13 +2,7 @@ class profile_foreman (
   $foreman_admin_password = 'secret',
   $foreman_host           = $::fqdn,
   $foreman_repo           = 'stable',
-  $puppetmaster           = 'puppet',
 ) {
-  class { '::puppet':
-    puppetmaster   => $puppetmaster,
-    server         => false,
-    server_reports => 'foreman',
-  } ->
   class { '::foreman':
     admin_password => $foreman_admin_password,
     apipie_task    => 'apipie:cache',

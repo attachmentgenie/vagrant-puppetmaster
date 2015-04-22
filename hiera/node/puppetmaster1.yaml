@@ -6,4 +6,5 @@ profile_puppet::dns_alt_names:
   - puppetmaster.foreman.vagrant
 profile_puppet::server: true
 profile_puppet::server_ca: false
+profile_puppet::server_ca_proxy: "https://puppet.foreman.vagrant:8140"
 profile_puppet::server_foreman: true
