@@ -1,11 +1,12 @@
 class profile_foreman (
+  $apipie_task            = 'apipie:cache:index',
   $foreman_admin_password = 'secret',
   $foreman_host           = $::fqdn,
   $foreman_repo           = 'stable',
 ) {
   class { '::foreman':
     admin_password => $foreman_admin_password,
-    apipie_task    => 'apipie:cache',
+    apipie_task    => $apipie_task,
     foreman_url    => $foreman_host,
     unattended     => false,
     authentication => true,
