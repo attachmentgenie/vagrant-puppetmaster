@@ -49,8 +49,8 @@ Vagrant.configure("2") do |config|
     config.vm.define :puppet do |puppet_config|
       puppet_config.vm.host_name = "puppet.foreman.vagrant"
       puppet_config.vm.network :private_network, ip: "192.168.21.130"
-      puppet_config.vm.synced_folder 'manifests/', '/etc/puppet/environments/production/manifests'
-      puppet_config.vm.synced_folder 'modules/', '/etc/puppet/environments/production/modules'
+      puppet_config.vm.synced_folder 'manifests/', "/etc/puppet/environments/#{env}/manifests"
+      puppet_config.vm.synced_folder 'modules/', "/etc/puppet/environments/#{env}/modules"
       puppet_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
       puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
       puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/autosign.conf /etc/puppet/autosign.conf'
@@ -81,8 +81,8 @@ Vagrant.configure("2") do |config|
       puppetmaster1_config.vm.host_name = "puppetmaster1.foreman.vagrant"
       puppetmaster1_config.vm.network :forwarded_port, guest: 22, host: 2140
       puppetmaster1_config.vm.network :private_network, ip: "192.168.21.140"
-      puppetmaster1_config.vm.synced_folder 'manifests/', '/etc/puppet/environments/production/manifests'
-      puppetmaster1_config.vm.synced_folder 'modules/', '/etc/puppet/modules'
+      puppetmaster1_config.vm.synced_folder 'manifests/', "/etc/puppet/environments/#{env}/manifests"
+      puppetmaster1_config.vm.synced_folder 'modules/', "/etc/puppet/environments/#{env}/modules"
       puppetmaster1_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
       puppetmaster1_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
       puppetmaster1_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/puppetmaster1/puppet.conf /etc/puppet/puppet.conf'
@@ -93,8 +93,8 @@ Vagrant.configure("2") do |config|
       puppetmaster2_config.vm.host_name = "puppetmaster2.foreman.vagrant"
       puppetmaster2_config.vm.network :forwarded_port, guest: 22, host: 2141
       puppetmaster2_config.vm.network :private_network, ip: "192.168.21.141"
-      puppetmaster2_config.vm.synced_folder 'manifests/', '/etc/puppet/environments/production/manifests'
-      puppetmaster2_config.vm.synced_folder 'modules/', '/etc/puppet/modules'
+      puppetmaster2_config.vm.synced_folder 'manifests/', "/etc/puppet/environments/#{env}/manifests"
+      puppetmaster2_config.vm.synced_folder 'modules/', "/etc/puppet/environments/#{env}/modules"
       puppetmaster2_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
       puppetmaster2_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
       puppetmaster2_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/puppetmaster2/puppet.conf /etc/puppet/puppet.conf'
