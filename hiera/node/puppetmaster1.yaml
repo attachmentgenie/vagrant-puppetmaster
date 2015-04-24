@@ -1,6 +1,6 @@
 ---
 classes:
-  - role_puppetmaster
+  - role_puppetcompile
 profile_puppet::dns_alt_names:
   - puppetmaster
   - puppetmaster.foreman.vagrant
