@@ -3,12 +3,13 @@ class profile_foreman (
   $foreman_admin_password = 'secret',
   $foreman_host           = $::fqdn,
   $foreman_repo           = 'stable',
+  $unattended             = true,
 ) {
   class { '::foreman':
     admin_password => $foreman_admin_password,
     apipie_task    => $apipie_task,
     foreman_url    => $foreman_host,
-    unattended     => false,
+    unattended     => $unattended,
     authentication => true,
     passenger      => true,
     ssl            => false,

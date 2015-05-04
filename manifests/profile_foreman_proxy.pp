@@ -11,10 +11,5 @@ class profile_foreman_proxy (
     puppetca         => $puppetca,
     puppetrun        => true,
     tftp             => false,
-  } ->
-  cron { 'foreman-push-facts':
-    command => "/usr/bin/ruby /etc/puppet/node.rb --push-facts &> /dev/null",
-    user    => puppet,
-    minute  => '*/2'
   }
 }
