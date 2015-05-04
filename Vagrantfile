@@ -62,24 +62,31 @@ Vagrant.configure("2") do |config|
       end
     end
 
+    config.vm.define :db do |db_config|
+      db_config.vm.host_name = "db.foreman.vagrant"
+      db_config.vm.network :forwarded_port, guest: 22, host: 2131
+      db_config.vm.network :private_network, ip: "192.168.21.131"
+      db_config.vm.provision 'shell', inline: PUPPET
+    end
+
     config.vm.define :puppetdb do |puppetdb_config|
       puppetdb_config.vm.host_name = "puppetdb.foreman.vagrant"
-      puppetdb_config.vm.network :forwarded_port, guest: 22, host: 2131
-      puppetdb_config.vm.network :private_network, ip: "192.168.21.131"
+      puppetdb_config.vm.network :forwarded_port, guest: 22, host: 2132
+      puppetdb_config.vm.network :private_network, ip: "192.168.21.132"
       puppetdb_config.vm.provision 'shell', inline: PUPPET
     end
 
     config.vm.define :foreman do |foreman_config|
       foreman_config.vm.host_name = "foreman.foreman.vagrant"
-      foreman_config.vm.network :forwarded_port, guest: 22, host: 2132
-      foreman_config.vm.network :private_network, ip: "192.168.21.132"
+      foreman_config.vm.network :forwarded_port, guest: 22, host: 2133
+      foreman_config.vm.network :private_network, ip: "192.168.21.133"
       foreman_config.vm.provision 'shell', inline: PUPPET
     end
 
     config.vm.define :node do |node_config|
       node_config.vm.host_name = "node.foreman.vagrant"
-      node_config.vm.network :forwarded_port, guest: 22, host: 2160
-      node_config.vm.network :private_network, ip: "192.168.21.160"
+      node_config.vm.network :forwarded_port, guest: 22, host: 2140
+      node_config.vm.network :private_network, ip: "192.168.21.140"
       node_config.vm.provision 'shell', inline: PUPPET
     end
 end
