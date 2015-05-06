@@ -1,2 +1,5 @@
 ---
 profile_firewall::ensure: stopped
+stack_puppetmaster::db: false
+stack_puppetmaster::foreman: false
+stack_puppetmaster::puppetdb: false
