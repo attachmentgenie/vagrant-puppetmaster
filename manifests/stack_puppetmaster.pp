@@ -20,7 +20,7 @@ class stack_puppetmaster (
   }
   if $puppetdb {
     class { '::profile_puppetdb': }
-    Class['::puppet'] ->
-    Class['::puppetdb']
+    Class['::puppet::server::service'] ->
+    Class['::puppetdb::server']
   }
 }

@@ -7,22 +7,34 @@
 
 ## Setup
     librarian-puppet install
+    cd vagrant/${env}
     vagrant up
-    vagrant up
-    vagrant provision puppet
-    vagrant ssh puppet
-    sudo puppet cert --allow-dns-alt-names sign puppetmaster1.foreman.vagrant
-    sudo puppet cert --allow-dns-alt-names sign puppetmaster2.foreman.vagrant
-    sudo /etc/init.d/httpd restart
-    exit
-    vagrant provision
     
-## Interfaces
+## Environments
 
-### foreman
+### XXS
+2 nodes => puppetmaster (puppetmaster) + node (puppet client)
 
-http://foreman.foreman.vagrant
+### XS
+2 nodes => puppetmaster (puppetmaster + puppetdb) + node (puppet client)
 
-### puppetdb
+    puppetdb => http://puppetmaster.puppet.vagrant:8080
 
-http://puppetdb.foreman.vagrant:8080
+### S
+2 nodes => puppetmaster (puppetmaster + puppetdb + foreman) + node (puppet client)
+
+    foreman  => http://puppetmaster.puppet.vagrant
+    puppetdb => http://puppetmaster.puppet.vagrant:8080
+    
+### M
+4 nodes => puppetmaster (puppetmaster) + puppetdb (puppetdb) + foreman (foreman) + node (puppet client)
+
+    foreman  => http://foreman.puppet.vagrant
+    puppetdb => http://puppetdb.puppet.vagrant:8080
+    
+### L
+5 nodes => puppetmaster (puppetmaster) + db (postgresql) + puppetdb (puppetdb) + foreman (foreman) + node (puppet client)
+
+    foreman  => http://foreman.puppet.vagrant
+    puppetdb => http://puppetdb.puppet.vagrant:8080
+    
