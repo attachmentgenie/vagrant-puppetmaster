@@ -1,0 +1,4 @@
+---
+classes:
+  - role_puppetmaster
+profile_puppet::server: true

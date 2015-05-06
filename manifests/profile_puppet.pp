@@ -1,5 +1,5 @@
 class profile_puppet (
-  $allow_any_crl_auth          = false,
+  $allow_any_crl_auth          = true,
   $dns_alt_names               = [],
   $puppetmaster                = undef,
   $server                      = false,
