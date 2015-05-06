@@ -9,8 +9,8 @@ class profile_puppet (
   $server_foreman              = false,
   $server_foreman_url          = "http://foreman",
   $server_puppetdb_host        = undef,
-  $server_reports              = 'store, foreman',
-  $server_storeconfigs_backend = 'puppetdb',
+  $server_reports              = 'store',
+  $server_storeconfigs_backend = undef,
   $splay                       = true,
 ) {
   class { '::puppet':

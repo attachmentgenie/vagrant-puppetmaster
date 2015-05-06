@@ -1,0 +1,6 @@
+---
+profile_puppet::server_external_nodes: ''
+stack_puppetmaster::db: false
+stack_puppetmaster::foreman: false
+stack_puppetmaster::foreman_proxy: false
+stack_puppetmaster::puppetdb: false
