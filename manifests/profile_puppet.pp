@@ -2,6 +2,7 @@ class profile_puppet (
   $allow_any_crl_auth          = true,
   $dns_alt_names               = [],
   $puppetmaster                = undef,
+  $runmode                     = 'service',
   $server                      = false,
   $server_ca                   = true,
   $server_ca_proxy             = undef,
@@ -11,12 +12,14 @@ class profile_puppet (
   $server_puppetdb_host        = undef,
   $server_reports              = 'store',
   $server_storeconfigs_backend = undef,
+  $show_diff                   = true,
   $splay                       = true,
 ) {
   class { '::puppet':
     allow_any_crl_auth          => $allow_any_crl_auth,
     dns_alt_names               => $dns_alt_names,
     puppetmaster                => $puppetmaster,
+    runmode                     => $runmode,
     server                      => $server,
     server_ca                   => $server_ca,
     server_ca_proxy             => $server_ca_proxy,
@@ -26,6 +29,7 @@ class profile_puppet (
     server_puppetdb_host        => $server_puppetdb_host,
     server_reports              => $server_reports,
     server_storeconfigs_backend => $server_storeconfigs_backend,
+    show_diff                   => $show_diff,
     splay                       => $splay,
   }
 }

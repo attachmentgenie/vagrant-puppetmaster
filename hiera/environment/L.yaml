@@ -6,3 +6,4 @@ profile_puppet::puppetmaster: puppetmaster.puppet.vagrant
 profile_puppet::server_foreman: true
 profile_puppet::server_foreman_url: "http://foreman.puppet.vagrant"
 profile_puppet::server_puppetdb_host: puppetdb.puppet.vagrant
+stack_puppetmaster::foreman_proxy: true

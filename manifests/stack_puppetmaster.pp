@@ -1,11 +1,12 @@
 class stack_puppetmaster (
-  $db            = true,
-  $foreman       = true,
-  $foreman_proxy = true,
-  $puppetdb      = true,
+  $db            = false,
+  $foreman       = false,
+  $foreman_proxy = false,
+  $puppetdb      = false,
+  $puppetca      = false,
 ) {
   class { '::profile_puppet': }
-  if $foreman_proxy {
+  if $puppetca and ($foreman_proxy) {
     class { '::profile_foreman_proxy': }
     Class['::puppet'] ->
     Class['::foreman_proxy']
@@ -20,7 +21,9 @@ class stack_puppetmaster (
   }
   if $puppetdb {
     class { '::profile_puppetdb': }
-    Class['::puppet::server::service'] ->
-    Class['::puppetdb::server']
+    if ($puppetca) {
+      Class['::puppet::server::service'] ->
+      Class['::puppetdb::server']
+    }
   }
 }
