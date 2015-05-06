@@ -6,7 +6,7 @@ class stack_puppetmaster (
   $puppetca      = false,
 ) {
   class { '::profile_puppet': }
-  if $puppetca and ($foreman_proxy) {
+  if $puppetca and $foreman_proxy {
     class { '::profile_foreman_proxy': }
     Class['::puppet'] ->
     Class['::foreman_proxy']
@@ -18,6 +18,10 @@ class stack_puppetmaster (
     class { '::profile_foreman': }
     Class['::puppet'] ->
     Class['::foreman']
+    if $puppetdb {
+      Class['::foreman'] ->
+      Class['::puppetdb::server']
+    }
   }
   if $puppetdb {
     class { '::profile_puppetdb': }

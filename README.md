@@ -32,9 +32,3 @@
     foreman  => http://foreman.puppet.vagrant
     puppetdb => http://puppetdb.puppet.vagrant:8080
     
-### L
-5 nodes => puppetmaster (puppetmaster) + db (postgresql) + puppetdb (puppetdb) + foreman (foreman) + node (puppet client)
-
-    foreman  => http://foreman.puppet.vagrant
-    puppetdb => http://puppetdb.puppet.vagrant:8080
-    

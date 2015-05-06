@@ -1,5 +1,6 @@
 class profile_foreman_proxy (
   $foreman_host = 'foreman',
+  $version      = 'present',
 ) {
   class { '::foreman_proxy':
     foreman_base_url => "http://${foreman_host}",
@@ -10,5 +11,6 @@ class profile_foreman_proxy (
     puppetca         => true,
     puppetrun        => true,
     tftp             => false,
+    version          => $version,
   }
 }
