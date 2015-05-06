@@ -1,5 +1,5 @@
 class stack_puppetmaster (
-  $balancermember = false,
+  $db             = true,
   $foreman        = true,
   $puppetdb       = true,
 ) {
@@ -8,8 +8,8 @@ class stack_puppetmaster (
   Class['::puppet'] ->
   Class['::foreman_proxy']
 
-  if $balancermember {
-    class { '::profile_haproxy_balancermember': }
+  if $db {
+    class { '::profile_postgresql': }
   }
   if $foreman {
     class { '::profile_foreman': }

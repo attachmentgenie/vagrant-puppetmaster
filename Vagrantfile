@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     default_env = 'production'
     ext_env = ENV['VAGRANT_PUPPET_ENV']
     env = ext_env ? ext_env : default_env
-    PUPPET = "sudo puppet agent -t --environment #{env} --server puppet.foreman.vagrant; echo $?"
+    PUPPET = "sudo puppet agent -t --environment #{env} --server puppetmaster.puppet.vagrant; echo $?"
 
 ###############################################################################
 # Global VirtualBox settings                                                  #
@@ -45,15 +45,15 @@ Vagrant.configure("2") do |config|
 # VM definitions                                                              #
 ###############################################################################
 
-    config.vm.define :puppet do |puppet_config|
-      puppet_config.vm.host_name = "puppet.foreman.vagrant"
-      puppet_config.vm.network :private_network, ip: "192.168.21.130"
-      puppet_config.vm.synced_folder 'manifests/', "/etc/puppet/environments/#{env}/manifests"
-      puppet_config.vm.synced_folder 'modules/', "/etc/puppet/environments/#{env}/modules"
-      puppet_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
-      puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
-      puppet_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/autosign.conf /etc/puppet/autosign.conf'
-      puppet_config.vm.provision :puppet do |puppet|
+    config.vm.define :puppetmaster do |puppetmaster_config|
+      puppetmaster_config.vm.host_name = "puppetmaster.puppet.vagrant"
+      puppetmaster_config.vm.network :private_network, ip: "192.168.21.130"
+      puppetmaster_config.vm.synced_folder 'manifests/', "/etc/puppet/environments/#{env}/manifests"
+      puppetmaster_config.vm.synced_folder 'modules/', "/etc/puppet/environments/#{env}/modules"
+      puppetmaster_config.vm.synced_folder 'hiera/', '/var/lib/hiera'
+      puppetmaster_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
+      puppetmaster_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/autosign.conf /etc/puppet/autosign.conf'
+      puppetmaster_config.vm.provision :puppet do |puppet|
           puppet.options = "--environment #{env}"
           puppet.manifests_path = "manifests"
           puppet.manifest_file  = ""
@@ -63,28 +63,28 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.define :db do |db_config|
-      db_config.vm.host_name = "db.foreman.vagrant"
+      db_config.vm.host_name = "db.puppet.vagrant"
       db_config.vm.network :forwarded_port, guest: 22, host: 2131
       db_config.vm.network :private_network, ip: "192.168.21.131"
       db_config.vm.provision 'shell', inline: PUPPET
     end
 
     config.vm.define :puppetdb do |puppetdb_config|
-      puppetdb_config.vm.host_name = "puppetdb.foreman.vagrant"
+      puppetdb_config.vm.host_name = "puppetdb.puppet.vagrant"
       puppetdb_config.vm.network :forwarded_port, guest: 22, host: 2132
       puppetdb_config.vm.network :private_network, ip: "192.168.21.132"
       puppetdb_config.vm.provision 'shell', inline: PUPPET
     end
 
     config.vm.define :foreman do |foreman_config|
-      foreman_config.vm.host_name = "foreman.foreman.vagrant"
+      foreman_config.vm.host_name = "foreman.puppet.vagrant"
       foreman_config.vm.network :forwarded_port, guest: 22, host: 2133
       foreman_config.vm.network :private_network, ip: "192.168.21.133"
       foreman_config.vm.provision 'shell', inline: PUPPET
     end
 
     config.vm.define :node do |node_config|
-      node_config.vm.host_name = "node.foreman.vagrant"
+      node_config.vm.host_name = "node.puppet.vagrant"
       node_config.vm.network :forwarded_port, guest: 22, host: 2140
       node_config.vm.network :private_network, ip: "192.168.21.140"
       node_config.vm.provision 'shell', inline: PUPPET
