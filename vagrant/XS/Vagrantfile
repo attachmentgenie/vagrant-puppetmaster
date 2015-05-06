@@ -44,21 +44,22 @@ Vagrant.configure("2") do |config|
 ###############################################################################
 # VM definitions                                                              #
 ###############################################################################
-
+    config.vm.synced_folder ".", "/vagrant", disabled: true
     config.vm.define :puppetmaster do |puppetmaster_config|
       puppetmaster_config.vm.host_name = "puppetmaster.puppet.vagrant"
       puppetmaster_config.vm.network :private_network, ip: "192.168.21.130"
       puppetmaster_config.vm.synced_folder '../../manifests/', "/etc/puppet/environments/#{env}/manifests"
       puppetmaster_config.vm.synced_folder '../../modules/', "/etc/puppet/environments/#{env}/modules"
       puppetmaster_config.vm.synced_folder '../../hiera/', '/var/lib/hiera'
-      puppetmaster_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/hiera.yaml /etc/puppet/hiera.yaml'
-      puppetmaster_config.vm.provision :shell, inline: 'sudo cp /vagrant/files/autosign.conf /etc/puppet/autosign.conf'
+      puppetmaster_config.vm.synced_folder '../../files/', '/opt/files'
+      puppetmaster_config.vm.provision :shell, inline: 'sudo cp /opt/files/hiera.yaml /etc/puppet/hiera.yaml'
+      puppetmaster_config.vm.provision :shell, inline: 'sudo cp /opt/files/autosign.conf /etc/puppet/autosign.conf'
       puppetmaster_config.vm.provision :puppet do |puppet|
           puppet.options = "--environment #{env}"
           puppet.manifests_path = "../../manifests"
           puppet.manifest_file  = ""
           puppet.module_path = "../../modules"
-          puppet.hiera_config_path = "files/hiera.yaml"
+          puppet.hiera_config_path = "../../files/hiera.yaml"
       end
     end
 
