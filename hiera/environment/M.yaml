@@ -1,6 +1,4 @@
 ---
-profile_foreman::apipie_task: 'apipie:cache'
-profile_foreman::foreman_repo: '1.7'
 profile_foreman_proxy::foreman_host: foreman.puppet.vagrant
 profile_puppet::puppetmaster: puppetmaster.puppet.vagrant
 profile_puppet::server_foreman: true

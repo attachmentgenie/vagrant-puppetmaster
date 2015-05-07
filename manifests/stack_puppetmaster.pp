@@ -1,5 +1,4 @@
 class stack_puppetmaster (
-  $db            = false,
   $foreman       = false,
   $foreman_proxy = false,
   $puppetdb      = false,
@@ -10,9 +9,6 @@ class stack_puppetmaster (
     class { '::profile_foreman_proxy': }
     Class['::puppet'] ->
     Class['::foreman_proxy']
-  }
-  if $db {
-    class { '::profile_postgresql': }
   }
   if $foreman {
     class { '::profile_foreman': }
