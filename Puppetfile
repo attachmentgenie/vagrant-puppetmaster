@@ -2,10 +2,13 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'adrien/alternatives'
 mod 'jfryman/selinux'
+mod 'puppet/mcollective'
 mod 'puppetlabs/apache'
+mod 'puppetlabs/activemq'
 mod 'puppetlabs/apt'
 mod 'puppetlabs/concat'
 mod 'puppetlabs/firewall'
+mod 'puppetlabs/java'
 mod 'puppetlabs/ntp'
 mod 'puppetlabs/postgresql'
 mod 'puppetlabs/puppetdb'

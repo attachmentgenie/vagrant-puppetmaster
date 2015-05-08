@@ -1,6 +1,7 @@
 class stack_puppetmaster (
   $foreman       = false,
   $foreman_proxy = false,
+  $mcollective   = false,
   $puppetdb      = false,
   $puppetca      = false,
 ) {
@@ -18,6 +19,9 @@ class stack_puppetmaster (
       Class['::foreman'] ->
       Class['::puppetdb::server']
     }
+  }
+  if $mcollective {
+    class { '::profile_mcollective': }
   }
   if $puppetdb {
     class { '::profile_puppetdb': }

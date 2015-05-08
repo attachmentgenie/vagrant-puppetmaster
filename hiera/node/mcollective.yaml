@@ -1,0 +1,4 @@
+---
+classes:
+  - role_puppetmaster
+stack_puppetmaster::mcollective: true

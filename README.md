@@ -25,8 +25,15 @@
 
     foreman  => http://puppetmaster.puppet.vagrant
     puppetdb => http://puppetmaster.puppet.vagrant:8080
-    
+
+
 ### M
+2 nodes => puppetmaster (puppetmaster + puppetdb + foreman + mcollective) + node (puppet client)
+
+    foreman  => http://puppetmaster.puppet.vagrant
+    puppetdb => http://puppetmaster.puppet.vagrant:8080
+    
+### L
 4 nodes => puppetmaster (puppetmaster) + puppetdb (puppetdb) + foreman (foreman) + node (puppet client)
 
     foreman  => http://foreman.puppet.vagrant
