@@ -26,10 +26,10 @@ Vagrant.configure("2") do |config|
 ###############################################################################
 # Global provisioning settings                                                #
 ###############################################################################
-    default_env = 'XS'
+    default_env = 'xxs'
     ext_env = ENV['VAGRANT_PUPPET_ENV']
     env = ext_env ? ext_env : default_env
-    PUPPET = "sudo puppet agent -t --environment #{env} --server puppetmaster.puppet.vagrant; echo $?"
+    PUPPET = "sudo puppet agent -t --environment #{env} --server puppetmaster.#{env}.vagrant; echo $?"
 
 ###############################################################################
 # Global VirtualBox settings                                                  #
@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
 ###############################################################################
     config.vm.synced_folder ".", "/vagrant", disabled: true
     config.vm.define :puppetmaster do |puppetmaster_config|
-      puppetmaster_config.vm.host_name = "puppetmaster.puppet.vagrant"
+      puppetmaster_config.vm.host_name = "puppetmaster.#{env}.vagrant"
       puppetmaster_config.vm.network :private_network, ip: "192.168.21.130"
       puppetmaster_config.vm.synced_folder '../../manifests/', "/etc/puppet/environments/#{env}/manifests"
       puppetmaster_config.vm.synced_folder '../../modules/', "/etc/puppet/environments/#{env}/modules"
@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.define :node do |node_config|
-      node_config.vm.host_name = "node.puppet.vagrant"
+      node_config.vm.host_name = "node.#{env}.vagrant"
       node_config.vm.network :forwarded_port, guest: 22, host: 2140
       node_config.vm.network :private_network, ip: "192.168.21.140"
       node_config.vm.provision 'shell', inline: PUPPET

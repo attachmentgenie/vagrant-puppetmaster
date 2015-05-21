@@ -18,13 +18,13 @@
 ### XS
 2 nodes => puppetmaster (puppetmaster + puppetdb) + node (puppet client)
 
-    puppetdb => http://puppetmaster.puppet.vagrant:8080
+    puppetdb => http://puppetmaster.xs.vagrant:8080
 
 ### S
 2 nodes => puppetmaster (puppetmaster + puppetdb + foreman) + node (puppet client)
 
-    foreman  => http://puppetmaster.puppet.vagrant
-    puppetdb => http://puppetmaster.puppet.vagrant:8080
+    foreman  => https://puppetmaster.s.vagrant
+    puppetdb => http://puppetmaster.s.vagrant:8080
 
 
 ### M
