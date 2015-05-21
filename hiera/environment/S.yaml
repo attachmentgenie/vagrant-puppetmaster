@@ -1,5 +1,6 @@
 ---
 profile_foreman_proxy::foreman_host: puppetmaster.puppet.vagrant
+profile_puppet::server_external_nodes: ''
 profile_puppet::server_foreman: true
 profile_puppet::server_foreman_url: 'http://puppetmaster.puppet.vagrant'
 profile_puppet::server_puppetdb_host: puppetmaster.puppet.vagrant

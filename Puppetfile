@@ -1,5 +1,7 @@
 forge "https://forgeapi.puppetlabs.com"
 
+mod 'attachmentgenie/puppetmaster',
+  :git => "git://github.com/attachmentgenie/attachmentgenie-puppetmaster.git"
 mod 'adrien/alternatives'
 mod 'jfryman/selinux'
 mod 'puppet/mcollective'
