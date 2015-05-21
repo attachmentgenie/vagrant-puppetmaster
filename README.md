@@ -30,8 +30,8 @@
 ### M
 2 nodes => puppetmaster (puppetmaster + puppetdb + foreman + mcollective) + node (puppet client)
 
-    foreman  => http://puppetmaster.puppet.vagrant
-    puppetdb => http://puppetmaster.puppet.vagrant:8080
+    foreman  => http://puppetmaster.m.vagrant
+    puppetdb => http://puppetmaster.m.vagrant:8080
     
 ### L
 4 nodes => puppetmaster (puppetmaster) + puppetdb (puppetdb) + foreman (foreman) + mcollective (mcollective) + node (puppet client)
