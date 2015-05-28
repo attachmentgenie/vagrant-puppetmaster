@@ -3,7 +3,6 @@
 ## Requirements
     Virtualbox          => https://www.virtualbox.org
     Vagrant             => http://www.vagrantup.com
-    librarian-puppet    => gem install librarian-puppet
     vagrant-hostmanager => vagrant plugin install vagrant-hostmanager
 
 ## Setup
