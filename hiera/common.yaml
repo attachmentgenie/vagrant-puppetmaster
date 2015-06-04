@@ -1,2 +1,2 @@
 ---
-puppetmaster::profile_firewall::ensure: stopped
+orchestrate::profile_firewall::ensure: stopped

@@ -52,3 +52,9 @@
 [submodule "modules/activemq"]
 	path = modules/activemq
 	url = git@github.com:puppetlabs/puppetlabs-activemq.git
+[submodule "modules/orchestrate"]
+	path = modules/orchestrate
+	url = git@github.com:attachmentgenie/attachmentgenie-orchestrate.git
+[submodule "modules/timezone"]
+	path = modules/timezone
+	url = git@github.com:attachmentgenie/attachmentgenie-timezone.git
