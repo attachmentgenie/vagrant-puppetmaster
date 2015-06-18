@@ -1,4 +1,2 @@
 ---
-#classes:
-#  - puppetmaster::role_node
 puppetmaster::profile_mcollective::client: false
