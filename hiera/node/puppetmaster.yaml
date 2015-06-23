@@ -1,6 +1,9 @@
 ---
 classes:
   - puppetmaster::role_puppetmaster
+puppetmaster::profile_foreman::plugins:
+  puppetdb:
+    package: 'ruby193-rubygem-puppetdb_foreman'
 puppetmaster::profile_puppet::runmode: none
 puppetmaster::profile_puppet::server: true
 puppetmaster::stack_puppetmaster::puppetca: true
