@@ -33,20 +33,21 @@
     foreman  => http://puppetmaster.m.vagrant
     puppetdb => http://puppetmaster.m.vagrant:8080
 
-### L (WIP)
+### L
 3 nodes => puppetmaster (puppet+ puppetmaster + puppetdb + foreman + activemq + mcollective) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
     foreman  => http://puppetmaster.multimaster.vagrant
     puppetdb => http://puppetmaster.multimaster.vagrant:8080
     
-### XL (TODO)
-6 nodes => puppetmaster (puppet + puppetmaster + mcollective) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + mcollective (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+### XL (WIP)
+6 nodes => puppetmaster (puppet + puppetmaster + mcollective) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+    
     foreman  => http://foreman.xl.vagrant
     puppetdb => http://puppetdb.xl.vagrant:8080
     
     
 ### XXL (TODO)
-7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + mcollective (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  nnode (puppet + mcollective)
+7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
     foreman  => http://foreman.xxl.vagrant
     puppetdb => http://puppetdb.xx  l.vagrant:8080

@@ -7,8 +7,6 @@ puppetmaster::profile_foreman::plugins:
 puppetmaster::profile_foreman_proxy::puppetca: false
 puppetmaster::profile_mcollective::client: false
 puppetmaster::profile_puppet::allow_any_crl_auth: false
-puppetmaster::profile_puppet::dns_alt_names:
-  - puppet.multimaster.vagrant
 puppetmaster::profile_puppet::hiera_yaml_datadir: "/etc/puppet/environments/production/hieradata"
 puppetmaster::profile_puppet::runmode: none
 puppetmaster::profile_puppet::server: true

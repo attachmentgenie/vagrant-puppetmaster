@@ -5,8 +5,6 @@ puppetmaster::profile_mcollective::client: true
 puppetmaster::profile_mcollective::middleware_hosts:
  - puppetmaster.l.vagrant
 puppetmaster::profile_puppet::autosign: false
-puppetmaster::profile_puppet::dns_alt_names:
-  - puppet.l.vagrant
 puppetmaster::profile_puppet::puppetmaster: puppetmaster.l.vagrant
 puppetmaster::profile_puppet::server_foreman: true
 puppetmaster::profile_puppet::server_foreman_url: 'https://puppetmaster.l.vagrant'
