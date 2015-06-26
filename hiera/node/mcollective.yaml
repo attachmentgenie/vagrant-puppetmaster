@@ -1,5 +1,5 @@
 ---
 classes:
   - puppetmaster::role_puppetmaster
-puppetmaster::stack_puppetmaster::mco_broker: true
-puppetmaster::stack_puppetmaster::mco_client: true
+puppetmaster::stack_puppetmaster::activemq: true
+puppetmaster::stack_puppetmaster::mcollective: true

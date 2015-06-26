@@ -13,42 +13,40 @@
 ## Environments
 
 ### XXS
-2 nodes => puppetmaster (puppetmaster) + node (puppet client)
+2 nodes => puppetmaster (puppet + puppetmaster) + node (puppet)
 
 ### XS
-2 nodes => puppetmaster (puppetmaster + puppetdb) + node (puppet client)
+2 nodes => puppetmaster (puppet + puppetmaster + puppetdb) + node (puppet)
 
     puppetdb => http://puppetmaster.xs.vagrant:8080
 
 ### S
-2 nodes => puppetmaster (puppetmaster + puppetdb + foreman) + node (puppet client)
+2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman) + node (puppet)
 
     foreman  => https://puppetmaster.s.vagrant
     puppetdb => http://puppetmaster.s.vagrant:8080
 
 
-### M (WIP)
-2 nodes => puppetmaster (puppetmaster + puppetdb + foreman + mcollective) + node (puppet client)
+### M
+2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + mcollective) + node (puppet + mcollective)
 
     foreman  => http://puppetmaster.m.vagrant
     puppetdb => http://puppetmaster.m.vagrant:8080
-    
-### L (TODO)
-5 nodes => puppetmaster (puppetmaster) + puppetdb (puppetdb) + foreman (foreman) + mcollective (mcollective) + node (puppet client)
 
-    foreman  => http://foreman.l.vagrant
-    puppetdb => http://puppetdb.l.vagrant:8080
-    
+### L (WIP)
+3 nodes => puppetmaster (puppet+ puppetmaster + puppetdb + foreman + activemq + mcollective) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+
+    foreman  => http://puppetmaster.multimaster.vagrant
+    puppetdb => http://puppetmaster.multimaster.vagrant:8080
     
 ### XL (TODO)
-6 nodes => puppetmaster (puppetmaster) + db (postgresql) + puppetdb (puppetdb) + foreman (foreman) + mcollective (mcollective) + node (puppet client)
-
-    foreman  => http://foreman.l.vagrant
-    puppetdb => http://puppetdb.l.vagrant:8080
+6 nodes => puppetmaster (puppet + puppetmaster + mcollective) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + mcollective (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+    foreman  => http://foreman.xl.vagrant
+    puppetdb => http://puppetdb.xl.vagrant:8080
     
     
 ### XXL (TODO)
-7 nodes => puppetmaster (puppetmaster) + db-master (postgresql) +  db-slave (postgresql) + puppetdb (puppetdb) + foreman (foreman) + mcollective (mcollective) + node (puppet client)
+7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + mcollective (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  nnode (puppet + mcollective)
 
-    foreman  => http://foreman.l.vagrant
-    puppetdb => http://puppetdb.l.vagrant:8080
+    foreman  => http://foreman.xxl.vagrant
+    puppetdb => http://puppetdb.xx  l.vagrant:8080

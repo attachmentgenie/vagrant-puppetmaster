@@ -1,14 +1,14 @@
 ---
-puppetmaster::profile_foreman_proxy::foreman_host: puppetmaster.m.vagrant
+puppetmaster::profile_foreman_proxy::foreman_host: puppetmaster.l.vagrant
 puppetmaster::profile_foreman_proxy::puppetca: true
 puppetmaster::profile_mcollective::client: true
 puppetmaster::profile_mcollective::middleware_hosts:
- - puppetmaster.m.vagrant
+ - puppetmaster.l.vagrant
 puppetmaster::profile_puppet::autosign: false
-puppetmaster::profile_puppet::puppetmaster: puppetmaster.m.vagrant
+puppetmaster::profile_puppet::puppetmaster: puppetmaster.l.vagrant
 puppetmaster::profile_puppet::server_foreman: true
-puppetmaster::profile_puppet::server_foreman_url: 'https://puppetmaster.m.vagrant'
-puppetmaster::profile_puppet::server_puppetdb_host: puppetmaster.m.vagrant
+puppetmaster::profile_puppet::server_foreman_url: 'https://puppetmaster.l.vagrant'
+puppetmaster::profile_puppet::server_puppetdb_host: puppetmaster.l.vagrant
 puppetmaster::profile_puppet::server_reports: 'store, foreman'
 puppetmaster::profile_puppet::server_storeconfigs_backend: 'puppetdb'
 puppetmaster::profile_puppetdb::manage_dbserver: false
