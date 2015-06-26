@@ -1,10 +1,7 @@
 ---
-puppetmaster::profile_foreman_proxy::foreman_host: puppetmaster.s.vagrant
 puppetmaster::profile_foreman_proxy::puppetca: true
 puppetmaster::profile_puppet::autosign: false
-puppetmaster::profile_puppet::puppetmaster: puppetmaster.s.vagrant
 puppetmaster::profile_puppet::server_foreman: true
-puppetmaster::profile_puppet::server_foreman_url: 'https://puppetmaster.s.vagrant'
 puppetmaster::profile_puppet::server_parser: 'future'
 puppetmaster::profile_puppet::server_puppetdb_host: puppetmaster.s.vagrant
 puppetmaster::profile_puppet::server_reports: 'store, foreman'

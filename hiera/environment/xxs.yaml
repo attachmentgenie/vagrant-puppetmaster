@@ -1,3 +1,2 @@
 ---
-puppetmaster::profile_puppet::puppetmaster: puppetmaster.xxs.vagrant
 puppetmaster::profile_puppet::server_external_nodes: ''
