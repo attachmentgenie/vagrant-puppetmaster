@@ -7,7 +7,7 @@ puppetmaster::profile_puppet::server_reports: 'store, foreman'
 puppetmaster::profile_puppet::server_storeconfigs_backend: 'puppetdb'
 puppetmaster::profile_puppetdb::manage_dbserver: false
 puppetmaster::profile_puppetdb::manage_pg_repo: false
-puppetmaster::stack_node::mco_server: true
+puppetmaster::stack_node::mcollective: true
 puppetmaster::stack_puppetmaster::foreman: true
 puppetmaster::stack_puppetmaster::foreman_proxy: true
 puppetmaster::stack_puppetmaster::activemq: true
