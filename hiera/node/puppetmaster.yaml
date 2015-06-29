@@ -7,3 +7,4 @@ puppetmaster::profile_foreman::plugins:
 puppetmaster::profile_puppet::runmode: none
 puppetmaster::profile_puppet::server: true
 puppetmaster::stack_puppetmaster::puppetmaster: true
+puppetmaster::stack_puppetmaster::mcollective_r10k: true

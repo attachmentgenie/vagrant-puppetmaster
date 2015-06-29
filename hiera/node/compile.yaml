@@ -15,6 +15,7 @@ puppetmaster::profile_puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8
 puppetmaster::stack_puppetmaster::foreman: false
 puppetmaster::stack_puppetmaster::activemq: false
 puppetmaster::stack_puppetmaster::mcollective: true
+puppetmaster::stack_puppetmaster::mcollective_r10k: true
 puppetmaster::stack_puppetmaster::puppetdb: false
 puppetmaster::stack_puppetmaster::puppetmaster: true
 puppetmaster::stack_puppetmaster::r10k: true
