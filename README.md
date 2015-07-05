@@ -7,37 +7,85 @@
 
 ## Setup
     git submodule update --init
-    cd vagrant/${env}
-    vagrant up
     
 ## Environments
 
 ### XXS
 2 nodes => puppetmaster (puppet + puppetmaster) + node (puppet)
 
+    cd vagrant/xxs
+    vagrant up
+
 ### XS
 2 nodes => puppetmaster (puppet + puppetmaster + puppetdb) + node (puppet)
 
+    cd vagrant/xs
+    vagrant up
     puppetdb => http://puppetmaster.xs.vagrant:8080
 
 ### S
 2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman) + node (puppet)
 
+    cd vagrant/s
+    vagrant up puppetmaster
+    login to foreman and change the following settings
+    administer, settings, puppet, enc_environment => false
+    administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
+    infrastruce, smart proxies, certificates, autosign entries, new =. *.s.vagrant
+    vagrant up node
+    
     foreman  => https://puppetmaster.s.vagrant
+    username: admin
+    passwd  : secret
     puppetdb => http://puppetmaster.s.vagrant:8080
 
 
 ### M
 2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + mcollective) + node (puppet + mcollective)
 
-    foreman  => http://puppetmaster.m.vagrant
+    cd vagrant/m
+    vagrant up puppetmaster
+    login to foreman and change the following settings
+    administer, settings, puppet, enc_environment => false
+    administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
+    infrastruce, smart proxies, certificates, autosign entries, new =. *.s.vagrant
+    vagrant up node
+    
+    foreman  => https://puppetmaster.m.vagrant
+    username: admin
+    passwd  : secret
     puppetdb => http://puppetmaster.m.vagrant:8080
 
 ### L
 3 nodes => puppetmaster (puppet+ puppetmaster + puppetdb + foreman + activemq + mcollective) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
-    foreman  => http://puppetmaster.multimaster.vagrant
-    puppetdb => http://puppetmaster.multimaster.vagrant:8080
+    cd vagrant/l
+    vagrant up puppetmaster
+    login to foreman and change the following settings
+    administer, settings, puppet, enc_environment => false
+    administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
+    infrastruce, smart proxies, certificates, autosign entries, new =. *.s.vagrant
+    vagrant up compile
+    vagrant ssh puppetmaster
+    sudo puppet cert clean compile.l.vagrant
+    exit
+    vagrant ssh compile
+    sudo rm -rf /var/lib/puppet/ssl
+    exit
+    vagrant provision compile
+    vagrant ssh puppetmaster
+    sudo puppet cert --allow-dns-alt-names sign compile.l.vagrant
+    exit
+    vagrant provision compile
+    vagrant ssh compile
+    sudo /etc/init.d/httpd restart
+    exit
+    vagrant up node
+    
+    foreman  => https://puppetmaster.l.vagrant
+    username: admin
+    passwd  : secret
+    puppetdb => http://puppetmaster.l.vagrant:8080
     
 ### XL (WIP)
 6 nodes => puppetmaster (puppet + puppetmaster + mcollective) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
