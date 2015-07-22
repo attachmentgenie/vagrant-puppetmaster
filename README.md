@@ -1,9 +1,10 @@
 # Creating a disposable test environment
 
 ## Requirements
-    Virtualbox          => https://www.virtualbox.org
-    Vagrant             => http://www.vagrantup.com
-    vagrant-hostmanager => vagrant plugin install vagrant-hostmanager
+    Virtualbox                 => https://www.virtualbox.org
+    Vagrant                    => http://www.vagrantup.comva
+    vagrant-hostmanager        => vagrant plugin install vagrant-hostmanager
+    vagrant-cachier (optional) => vagrant plugin install vagrant-cachier
 
 ## Setup
     git submodule update --init
@@ -64,7 +65,7 @@
     login to foreman and change the following settings
     administer, settings, puppet, enc_environment => false
     administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
-    infrastruce, smart proxies, certificates, autosign entries, new =. *.s.vagrant
+    infrastruce, smart proxies, certificates, autosign entries, new =. *.l.vagrant
     vagrant up compile
     vagrant ssh puppetmaster
     sudo puppet cert clean compile.l.vagrant
