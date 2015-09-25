@@ -32,7 +32,7 @@
     login to foreman and change the following settings
     administer, settings, puppet, enc_environment => false
     administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
-    infrastruce, smart proxies, certificates, autosign entries, new =. *.s.vagrant
+    infrastructure, smart proxies, certificates, autosign entries, new =. *.s.vagrant
     vagrant up node
     
     foreman  => https://puppetmaster.s.vagrant
@@ -49,7 +49,7 @@
     login to foreman and change the following settings
     administer, settings, puppet, enc_environment => false
     administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
-    infrastruce, smart proxies, certificates, autosign entries, new =. *.s.vagrant
+    infrastructure, smart proxies, certificates, autosign entries, new =. *.s.vagrant
     vagrant up node
     
     foreman  => https://puppetmaster.m.vagrant
@@ -65,7 +65,7 @@
     login to foreman and change the following settings
     administer, settings, puppet, enc_environment => false
     administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
-    infrastruce, smart proxies, certificates, autosign entries, new =. *.l.vagrant
+    infrastructure, smart proxies, certificates, autosign entries, new =. *.l.vagrant
     vagrant up compile
     vagrant ssh puppetmaster
     sudo puppet cert clean compile.l.vagrant
@@ -91,7 +91,13 @@
 ### XL (WIP)
 6 nodes => puppetmaster (puppet + puppetmaster + mcollective) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
     
-    foreman  => http://foreman.xl.vagrant
+    cd vagrant/xl
+    vagrant up puppetmaster
+    vagrant up node
+    
+    foreman  => https://foreman.xl.vagrant
+    username: admin
+    passwd  : secret
     puppetdb => http://puppetdb.xl.vagrant:8080
     
     
@@ -99,4 +105,4 @@
 7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
     foreman  => http://foreman.xxl.vagrant
-    puppetdb => http://puppetdb.xx  l.vagrant:8080
+    puppetdb => http://puppetdb.xxl.vagrant:8080
