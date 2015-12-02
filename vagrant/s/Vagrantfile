@@ -25,6 +25,17 @@ Vagrant.configure("2") do |config|
       config.cache.scope = :machine
     end
 
+    # When destroying a node, delete the node from the puppetmaster
+    if Vagrant.has_plugin?("vagrant-triggers")
+      config.trigger.after [:destroy] do
+        target = @machine.config.vm.hostname.to_s
+        puppetmaster = "puppetmaster"
+        if target != puppetmaster
+          system("vagrant ssh #{puppetmaster} -c 'sudo /usr/bin/puppet cert clean #{target}'" )
+        end
+      end
+    end
+
 ###############################################################################
 # Global provisioning settings                                                #
 ###############################################################################
