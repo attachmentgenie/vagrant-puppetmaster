@@ -1,5 +1,6 @@
 ---
 puppetmaster::profile_puppet::server_external_nodes: ''
+puppetmaster::profile_puppet::foreman_repo: true
 puppetmaster::profile_puppet::server_puppetdb_host: puppetmaster.xs.vagrant
 puppetmaster::profile_puppet::server_reports: 'store, puppetdb'
 puppetmaster::profile_puppet::server_storeconfigs_backend: 'puppetdb'

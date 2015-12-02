@@ -2,9 +2,9 @@
 
 ## Requirements
     Virtualbox                  => https://www.virtualbox.org
-    Vagrant                     => http://www.vagrantup.comva
+    Vagrant                     => http://www.vagrantup.com
     vagrant-hostmanager         => vagrant plugin install vagrant-hostmanager
-    vagrant-cachier (optional)  => vagrant plugin install vagrant-cachier
+    vagrant-cachier  (optional) => vagrant plugin install vagrant-cachier
     vagrant-triggers (optional) => vagrant plugin install vagrant-triggers
     
 ## Setup

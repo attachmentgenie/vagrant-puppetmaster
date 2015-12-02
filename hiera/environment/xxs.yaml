@@ -1,2 +1,3 @@
 ---
 puppetmaster::profile_puppet::server_external_nodes: ''
+puppetmaster::profile_puppet::foreman_repo: true
