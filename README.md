@@ -43,7 +43,7 @@
 
 
 ### M
-2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + mcollective) + node (puppet + mcollective)
+2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + activemq + mcollective) + node (puppet + mcollective)
 
     cd vagrant/m
     vagrant up puppetmaster
