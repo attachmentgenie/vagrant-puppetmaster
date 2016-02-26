@@ -5,3 +5,4 @@ puppetmaster::profile_mcollective::middleware_hosts:
  - puppetmaster.%{::environment}.vagrant
 puppetmaster::profile_puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
 puppetmaster::profile_puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
+notify_message: "common message"
