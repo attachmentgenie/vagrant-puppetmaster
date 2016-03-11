@@ -67,3 +67,6 @@
 [submodule "modules/ruby"]
 	path = modules/ruby
 	url = git@github.com:puppetlabs/puppetlabs-ruby.git
+[submodule "modules/extlib"]
+	path = modules/extlib
+	url = git@github.com:voxpupuli/puppet-extlib.git
