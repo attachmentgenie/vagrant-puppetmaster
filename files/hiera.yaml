@@ -4,6 +4,5 @@
   - yaml
 :hierarchy:
   - "node/%{::hostname}"
-  - "project/%{::role}-%{::tier}"
   - "environment/%{::environment}"
   - "common"
