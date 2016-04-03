@@ -12,8 +12,9 @@ puppetmaster::profile_puppet::runmode: none
 puppetmaster::profile_puppet::server: true
 puppetmaster::profile_puppet::server_ca: false
 puppetmaster::profile_puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8140"
-puppetmaster::stack_puppetmaster::foreman: false
 puppetmaster::stack_puppetmaster::activemq: false
+puppetmaster::stack_puppetmaster::foreman: false
+puppetmaster::stack_puppetmaster::memcached: false
 puppetmaster::stack_puppetmaster::mcollective: true
 puppetmaster::stack_puppetmaster::mcollective_r10k: true
 puppetmaster::stack_puppetmaster::puppetdb: false

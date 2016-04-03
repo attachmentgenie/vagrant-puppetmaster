@@ -3,5 +3,7 @@ classes:
   - puppetmaster::role_puppetmaster
 puppetmaster::profile_foreman::plugins:
   puppetdb:
-    package: 'ruby193-rubygem-puppetdb_foreman'
+    package: 'tfm-rubygem-puppetdb_foreman'
+  memcache: {}
 puppetmaster::stack_puppetmaster::foreman: true
+puppetmaster::stack_puppetmaster::memcached: true

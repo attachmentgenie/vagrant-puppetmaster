@@ -4,6 +4,7 @@ classes:
 puppetmaster::profile_foreman::plugins:
   puppetdb:
     package: 'tfm-rubygem-puppetdb_foreman'
+  memcache: {}
 puppetmaster::profile_puppet::runmode: none
 puppetmaster::profile_puppet::server: true
 puppetmaster::stack_puppetmaster::puppetmaster: true

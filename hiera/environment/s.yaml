@@ -10,4 +10,5 @@ puppetmaster::profile_puppetdb::manage_dbserver: false
 puppetmaster::profile_puppetdb::manage_pg_repo: false
 puppetmaster::stack_puppetmaster::foreman: true
 puppetmaster::stack_puppetmaster::foreman_proxy: true
+puppetmaster::stack_puppetmaster::memcached: true
 puppetmaster::stack_puppetmaster::puppetdb: true
