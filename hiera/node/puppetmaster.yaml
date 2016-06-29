@@ -1,11 +1,11 @@
 ---
 classes:
-  - puppetmaster::role_puppetmaster
-puppetmaster::profile_foreman::plugins:
+  - roles::puppetmaster
+profiles::foreman::plugins:
   puppetdb:
     package: 'tfm-rubygem-puppetdb_foreman'
   memcache: {}
-puppetmaster::profile_puppet::runmode: none
-puppetmaster::profile_puppet::server: true
-puppetmaster::stack_puppetmaster::puppetmaster: true
-puppetmaster::stack_puppetmaster::mcollective_r10k: true
+profiles::puppet::runmode: none
+profiles::puppet::server: true
+stacks::puppetmaster::puppetmaster: true
+stacks::puppetmaster::mcollective_r10k: true

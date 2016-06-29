@@ -1,2 +1,2 @@
 ---
-puppetmaster::profile_puppet::server_external_nodes: ''
+profiles::puppet::server_external_nodes: ''

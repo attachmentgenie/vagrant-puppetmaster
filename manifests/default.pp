@@ -1,4 +1,4 @@
-hiera_include('classes',['puppetmaster::role_node'])
+hiera_include('classes',['roles::node'])
 
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 

@@ -1,4 +1,4 @@
 ---
 classes:
-  - puppetmaster::role_puppetmaster
-puppetmaster::stack_puppetmaster::db: true
+  - roles::puppetmaster
+stacks::puppetmaster::db: true

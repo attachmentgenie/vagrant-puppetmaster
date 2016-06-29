@@ -1,17 +1,17 @@
 ---
-puppetmaster::profile_foreman_proxy::puppetca: true
-puppetmaster::profile_mcollective::client: true
-puppetmaster::profile_puppet::autosign: false
-puppetmaster::profile_puppet::server_foreman: true
-puppetmaster::profile_puppet::server_puppetdb_host: puppetmaster.m.vagrant
-puppetmaster::profile_puppet::server_reports: 'store, foreman'
-puppetmaster::profile_puppet::server_storeconfigs_backend: 'puppetdb'
-puppetmaster::profile_puppetdb::manage_dbserver: false
-puppetmaster::profile_puppetdb::manage_pg_repo: false
-puppetmaster::stack_node::mcollective: true
-puppetmaster::stack_puppetmaster::activemq: true
-puppetmaster::stack_puppetmaster::foreman: true
-puppetmaster::stack_puppetmaster::foreman_proxy: true
-puppetmaster::stack_puppetmaster::memcached: true
-puppetmaster::stack_puppetmaster::mcollective: true
-puppetmaster::stack_puppetmaster::puppetdb: true
+profiles::foreman_proxy::puppetca: true
+profiles::mcollective::client: true
+profiles::puppet::autosign: false
+profiles::puppet::server_foreman: true
+profiles::puppet::server_puppetdb_host: puppetmaster.m.vagrant
+profiles::puppet::server_reports: 'store, foreman'
+profiles::puppet::server_storeconfigs_backend: 'puppetdb'
+profiles::puppetdb::manage_dbserver: false
+profiles::puppetdb::manage_pg_repo: false
+stacks::node::mcollective: true
+stacks::puppetmaster::activemq: true
+stacks::puppetmaster::foreman: true
+stacks::puppetmaster::foreman_proxy: true
+stacks::puppetmaster::memcached: true
+stacks::puppetmaster::mcollective: true
+stacks::puppetmaster::puppetdb: true

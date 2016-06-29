@@ -1,6 +1,3 @@
-[submodule "modules/puppetmaster"]
-	path = modules/puppetmaster
-	url = git@github.com:attachmentgenie/attachmentgenie-puppetmaster.git
 [submodule "modules/epel"]
 	path = modules/epel
 	url = git@github.com:stahnma/puppet-module-epel.git
@@ -49,9 +46,6 @@
 [submodule "modules/activemq"]
 	path = modules/activemq
 	url = git@github.com:puppetlabs/puppetlabs-activemq.git
-[submodule "modules/orchestrate"]
-	path = modules/orchestrate
-	url = git@github.com:attachmentgenie/attachmentgenie-orchestrate.git
 [submodule "modules/timezone"]
 	path = modules/timezone
 	url = git@github.com:attachmentgenie/attachmentgenie-timezone.git
@@ -73,3 +67,12 @@
 [submodule "modules/memcached"]
 	path = modules/memcached
 	url = git@github.com:saz/puppet-memcached.git
+[submodule "modules/roles"]
+	path = modules/roles
+	url = git@github.com:attachmentgenie/attachmentgenie-roles.git
+[submodule "modules/stacks"]
+	path = modules/stacks
+	url = git@github.com:attachmentgenie/attachmentgenie-stacks.git
+[submodule "modules/profiles"]
+	path = modules/profiles
+	url = git@github.com:attachmentgenie/attachmentgenie-profiles.git

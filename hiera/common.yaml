@@ -1,7 +1,7 @@
 ---
-orchestrate::profile_firewall::ensure: stopped
-puppetmaster::profile_foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant
-puppetmaster::profile_mcollective::middleware_hosts:
+profiles::firewall::ensure: stopped
+profiles::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant
+profiles::mcollective::middleware_hosts:
  - puppetmaster.%{::environment}.vagrant
-puppetmaster::profile_puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
-puppetmaster::profile_puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
+profiles::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
+profiles::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
