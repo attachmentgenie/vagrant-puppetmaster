@@ -6,3 +6,5 @@
   - "node/%{::hostname}"
   - "environment/%{::environment}"
   - "common"
+:yaml:
+  :datadir: "/tmp/vagrant-puppet/environments/puppet/hieradata"

@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 ###############################################################################
 # Base box                                                                    #
 ###############################################################################
-    config.vm.box              = "puppetlabs/centos-6.6-64-puppet"
+    config.vm.box              = "puppetlabs/centos-7.0-64-puppet"
     config.vm.box_version      = '1.0.1'
     config.vm.box_check_update = false
 

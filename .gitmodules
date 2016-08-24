@@ -1,20 +1,20 @@
 [submodule "modules/epel"]
-	path = modules/epel
+	path = puppet/modules/epel
 	url = git@github.com:stahnma/puppet-module-epel.git
 [submodule "modules/ntp"]
-	path = modules/ntp
+	path = puppet/modules/ntp
 	url = git@github.com:puppetlabs/puppetlabs-ntp.git
 [submodule "modules/selinux"]
-	path = modules/selinux
+	path = puppet/modules/selinux
 	url = git@github.com:jfryman/puppet-selinux.git
 [submodule "modules/firewall"]
-	path = modules/firewall
+	path = puppet/modules/firewall
 	url = git@github.com:puppetlabs/puppetlabs-firewall.git
 [submodule "modules/stdlib"]
-	path = modules/stdlib
+	path = puppet/modules/stdlib
 	url = git@github.com:puppetlabs/puppetlabs-stdlib.git
 [submodule "modules/puppet"]
-	path = modules/puppet
+	path = puppet/modules/puppet
 	url = git@github.com:theforeman/puppet-puppet.git
 [submodule "modules/apache"]
 	path = modules/apache
@@ -47,10 +47,10 @@
 	path = modules/activemq
 	url = git@github.com:puppetlabs/puppetlabs-activemq.git
 [submodule "modules/timezone"]
-	path = modules/timezone
+	path = puppet/modules/timezone
 	url = git@github.com:attachmentgenie/attachmentgenie-timezone.git
 [submodule "modules/concat"]
-	path = modules/concat
+	path = puppet/modules/concat
 	url = git@github.com:puppetlabs/puppetlabs-concat.git
 [submodule "modules/r10k"]
 	path = modules/r10k
@@ -68,11 +68,11 @@
 	path = modules/memcached
 	url = git@github.com:saz/puppet-memcached.git
 [submodule "modules/roles"]
-	path = modules/roles
+	path = puppet/modules/roles
 	url = git@github.com:attachmentgenie/attachmentgenie-roles.git
 [submodule "modules/stacks"]
-	path = modules/stacks
+	path = puppet/modules/stacks
 	url = git@github.com:attachmentgenie/attachmentgenie-stacks.git
 [submodule "modules/profiles"]
-	path = modules/profiles
+	path = puppet/modules/profiles
 	url = git@github.com:attachmentgenie/attachmentgenie-profiles.git

@@ -1,3 +1,0 @@
----
-profiles::puppet::server_external_nodes: ''
-profiles::puppet::foreman_repo: true
