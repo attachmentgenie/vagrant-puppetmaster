@@ -1,3 +1,2 @@
 ---
 profiles::puppet::server_external_nodes: ''
-profiles::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/hieradata"

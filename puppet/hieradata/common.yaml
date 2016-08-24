@@ -3,5 +3,6 @@ profiles::firewall::ensure: stopped
 profiles::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant
 profiles::mcollective::middleware_hosts:
  - puppetmaster.%{::environment}.vagrant
+profiles::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/hieradata"
 profiles::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant

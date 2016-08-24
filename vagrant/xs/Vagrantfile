@@ -6,9 +6,7 @@ Vagrant.configure("2") do |config|
 ###############################################################################
 # Base box                                                                    #
 ###############################################################################
-    config.vm.box              = "puppetlabs/centos-6.6-64-puppet"
-    config.vm.box_version      = '1.0.1'
-    config.vm.box_check_update = false
+    config.vm.box              = "puppetlabs/centos-7.2-64-puppet"
 
 ###############################################################################
 # Global plugin settings                                                      #
@@ -31,7 +29,7 @@ Vagrant.configure("2") do |config|
         target = @machine.config.vm.hostname.to_s
         puppetmaster = "puppetmaster"
         if target != puppetmaster
-          system("vagrant ssh #{puppetmaster} -c 'sudo /usr/bin/puppet cert clean #{target}'" )
+          system("vagrant ssh #{puppetmaster} -c 'sudo /opt/puppetlabs/bin/puppet cert clean #{target}'" )
         end
       end
     end
@@ -64,18 +62,20 @@ Vagrant.configure("2") do |config|
 ###############################################################################
     config.vm.synced_folder ".", "/vagrant", disabled: true
     config.vm.define :puppetmaster do |puppetmaster_config|
+      config.vm.provider "virtualbox" do |vb|
+        vb.memory = 4096
+        vb.cpus   = 2
+      end
       puppetmaster_config.vm.host_name = "puppetmaster.#{env}.vagrant"
       puppetmaster_config.vm.network :private_network, ip: "192.168.22.130"
       puppetmaster_config.vm.network :forwarded_port, guest: 22, host: 2230
-      puppetmaster_config.vm.synced_folder '../../manifests/', "/etc/puppet/environments/#{env}/manifests"
-      puppetmaster_config.vm.synced_folder '../../modules/', "/etc/puppet/environments/#{env}/modules"
-      puppetmaster_config.vm.synced_folder '../../hiera/', '/var/lib/hiera'
+      puppetmaster_config.vm.synced_folder '../../puppet/manifests/', "/etc/puppetlabs/code/environments/#{env}/manifests"
+      puppetmaster_config.vm.synced_folder '../../puppet/modules/', "/etc/puppetlabs/code/environments/#{env}/modules"
+      puppetmaster_config.vm.synced_folder '../../puppet/hieradata', "/etc/puppetlabs/code/environments/#{env}/hieradata"
       puppetmaster_config.vm.provision :puppet do |puppet|
-          puppet.options           = "--environment #{env}"
-          puppet.manifests_path    = "../../manifests"
-          puppet.manifest_file     = ""
-          puppet.module_path       = "../../modules"
-          puppet.hiera_config_path = "../../files/hiera.yaml"
+          puppet.environment = "xs"
+          puppet.environment_path = "../../"
+          puppet.hiera_config_path = "../../puppet/hiera.yaml"
       end
     end
 
