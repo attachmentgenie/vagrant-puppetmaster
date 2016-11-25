@@ -31,8 +31,6 @@
     cd vagrant/s
     vagrant up puppetmaster
     login to foreman and change the following settings
-    administer, settings, puppet, enc_environment => false
-    administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
     infrastructure, smart proxies, certificates, autosign entries, new =. *.s.vagrant
     vagrant up node
     

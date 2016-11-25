@@ -17,7 +17,7 @@
 	path = puppet/modules/puppet
 	url = git@github.com:theforeman/puppet-puppet.git
 [submodule "modules/apache"]
-	path = modules/apache
+	path = puppet/modules/apache
 	url = git@github.com:puppetlabs/puppetlabs-apache.git
 [submodule "modules/puppetdb"]
 	path = puppet/modules/puppetdb
@@ -29,10 +29,10 @@
 	path = puppet/modules/postgresql
 	url = git@github.com:puppetlabs/puppetlabs-postgresql.git
 [submodule "modules/foreman"]
-	path = modules/foreman
+	path = puppet/modules/foreman
 	url = git@github.com:theforeman/puppet-foreman.git
 [submodule "modules/foreman_proxy"]
-	path = modules/foreman_proxy
+	path = puppet/modules/foreman_proxy
 	url = git@github.com:theforeman/puppet-foreman_proxy.git
 [submodule "modules/tftp"]
 	path = modules/tftp
@@ -61,11 +61,8 @@
 [submodule "modules/ruby"]
 	path = modules/ruby
 	url = git@github.com:puppetlabs/puppetlabs-ruby.git
-[submodule "modules/extlib"]
-	path = modules/extlib
-	url = git@github.com:voxpupuli/puppet-extlib.git
 [submodule "modules/memcached"]
-	path = modules/memcached
+	path = puppet/modules/memcached
 	url = git@github.com:saz/puppet-memcached.git
 [submodule "modules/roles"]
 	path = puppet/modules/roles
@@ -76,3 +73,6 @@
 [submodule "modules/profiles"]
 	path = puppet/modules/profiles
 	url = git@github.com:attachmentgenie/attachmentgenie-profiles.git
+[submodule "puppet/modules/extlib"]
+	path = puppet/modules/extlib
+	url = git@github.com:voxpupuli/puppet-extlib.git

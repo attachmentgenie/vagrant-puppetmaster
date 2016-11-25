@@ -1,11 +1,11 @@
 ---
 profiles::foreman_proxy::puppetca: true
 profiles::mcollective::client: true
-profiles::puppet::autosign: false
+profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::dns_alt_names:
   - puppet.l.vagrant
 profiles::puppet::server_foreman: true
-profiles::puppet::server_puppetdb_host: puppetmaster.l.vagrant
+profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_reports: 'store, foreman'
 profiles::puppet::server_storeconfigs_backend: 'puppetdb'
 profiles::puppetdb::manage_dbserver: false

@@ -1,8 +1,21 @@
 ---
 profiles::firewall::ensure: stopped
+profiles::foreman::settings:
+  enc_environment:
+    value: false
+  puppetdb_address:
+    value: "https://puppetmaster.%{::environment}.vagrant:8081/v2/commands"
+  puppetdb_dashboard_address:
+    value: "http://puppetmaster.%{::environment}.vagrant:8080/pdb/dashboard"
+  puppetdb_enabled:
+    value: true
 profiles::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant
 profiles::mcollective::middleware_hosts:
  - puppetmaster.%{::environment}.vagrant
 profiles::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/hieradata"
 profiles::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
+
+puppet::autosign_entries:
+ - '*.vagrant'
+ - '*.test'
