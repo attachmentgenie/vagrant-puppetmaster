@@ -2,64 +2,47 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-
-###############################################################################
-# Base box                                                                    #
-###############################################################################
-    config.vm.box              = "puppetlabs/centos-7.2-64-puppet"
-
-###############################################################################
-# Global plugin settings                                                      #
-###############################################################################
-    plugins = ["vagrant-hostmanager"]
-    plugins.each do |plugin|
-      unless Vagrant.has_plugin?(plugin)
-        raise plugin << " has not been installed."
-      end
+  ###############################################################################
+  # Global plugin settings                                                      #
+  ###############################################################################
+  plugins = ["vagrant-hostmanager"]
+  plugins.each do |plugin|
+    unless Vagrant.has_plugin?(plugin)
+      raise plugin << " has not been installed."
     end
+  end
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = true
 
-    # Configure cached packages to be shared between instances of the same base box.
-    if Vagrant.has_plugin?("vagrant-cachier")
-      config.cache.scope = :machine
-    end
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :machine
+  end
 
-    # When destroying a node, delete the node from the puppetmaster
-    if Vagrant.has_plugin?("vagrant-triggers")
-      config.trigger.after [:destroy] do
-        target = @machine.config.vm.hostname.to_s
-        puppetmaster = "puppetmaster"
-        if target != puppetmaster
-          system("vagrant ssh #{puppetmaster} -c 'sudo /opt/puppetlabs/bin/puppet cert clean #{target}'" )
-        end
-      end
-    end
+  if Vagrant.has_plugin?("vagrant-puppet-install")
+    config.puppet_install.puppet_version = :latest
+  end
 
-###############################################################################
-# Global provisioning settings                                                #
-###############################################################################
-    env = 'xs'
+  ###############################################################################
+  # Global provisioning settings                                                #
+  ###############################################################################
+  config.vm.box = "bento/centos-7.2"
+  env = 'xs'
 
-###############################################################################
-# Global VirtualBox settings                                                  #
-###############################################################################
-    config.vm.provider 'virtualbox' do |v|
-    v.customize [
-      'modifyvm', :id,
-      '--groups', '/Vagrant/puppetmaster'
-    ]
-    end
+  ###############################################################################
+  # Global VirtualBox settings                                                  #
+  ###############################################################################
+  config.vm.provider 'virtualbox' do |v|
+  v.customize [
+    'modifyvm', :id,
+    '--groups', '/Vagrant/puppetmaster'
+  ]
+  end
 
-###############################################################################
-# Global /etc/hosts file settings                                             #
-###############################################################################
-    config.hostmanager.enabled = true
-    config.hostmanager.manage_host = true
-    config.hostmanager.ignore_private_ip = false
-    config.hostmanager.include_offline = true
-
-###############################################################################
-# VM definitions                                                              #
-###############################################################################
+  ###############################################################################
+  # VM definitions                                                              #
+  ###############################################################################
     config.vm.synced_folder ".", "/vagrant", disabled: true
     config.vm.define :puppetmaster do |puppetmaster_config|
       config.vm.provider "virtualbox" do |vb|

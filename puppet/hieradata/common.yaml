@@ -15,7 +15,7 @@ profiles::mcollective::middleware_hosts:
 profiles::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/hieradata"
 profiles::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
-
+stacks::bootstrap::puppet: true
 puppet::autosign_entries:
  - '*.vagrant'
  - '*.test'
