@@ -1,38 +1,38 @@
 [submodule "modules/epel"]
-	path = puppet/modules/epel
+	path = production/modules/epel
 	url = git@github.com:stahnma/puppet-module-epel.git
 [submodule "modules/ntp"]
-	path = puppet/modules/ntp
+	path = production/modules/ntp
 	url = git@github.com:puppetlabs/puppetlabs-ntp.git
 [submodule "modules/selinux"]
-	path = puppet/modules/selinux
+	path = production/modules/selinux
 	url = git@github.com:jfryman/puppet-selinux.git
 [submodule "modules/firewall"]
-	path = puppet/modules/firewall
+	path = production/modules/firewall
 	url = git@github.com:puppetlabs/puppetlabs-firewall.git
 [submodule "modules/stdlib"]
-	path = puppet/modules/stdlib
+	path = production/modules/stdlib
 	url = git@github.com:puppetlabs/puppetlabs-stdlib.git
 [submodule "modules/puppet"]
-	path = puppet/modules/puppet
+	path = production/modules/puppet
 	url = git@github.com:theforeman/puppet-puppet.git
 [submodule "modules/apache"]
-	path = puppet/modules/apache
+	path = production/modules/apache
 	url = git@github.com:puppetlabs/puppetlabs-apache.git
 [submodule "modules/puppetdb"]
-	path = puppet/modules/puppetdb
+	path = production/modules/puppetdb
 	url = git@github.com:puppetlabs/puppetlabs-puppetdb.git
 [submodule "modules/inifile"]
-	path = puppet/modules/inifile
+	path = production/modules/inifile
 	url = git@github.com:puppetlabs/puppetlabs-inifile.git
 [submodule "modules/postgresql"]
-	path = puppet/modules/postgresql
+	path = production/modules/postgresql
 	url = git@github.com:puppetlabs/puppetlabs-postgresql.git
 [submodule "modules/foreman"]
-	path = puppet/modules/foreman
+	path = production/modules/foreman
 	url = git@github.com:theforeman/puppet-foreman.git
 [submodule "modules/foreman_proxy"]
-	path = puppet/modules/foreman_proxy
+	path = production/modules/foreman_proxy
 	url = git@github.com:theforeman/puppet-foreman_proxy.git
 [submodule "modules/tftp"]
 	path = modules/tftp
@@ -47,10 +47,10 @@
 	path = modules/activemq
 	url = git@github.com:puppetlabs/puppetlabs-activemq.git
 [submodule "modules/timezone"]
-	path = puppet/modules/timezone
+	path = production/modules/timezone
 	url = git@github.com:attachmentgenie/attachmentgenie-timezone.git
 [submodule "modules/concat"]
-	path = puppet/modules/concat
+	path = production/modules/concat
 	url = git@github.com:puppetlabs/puppetlabs-concat.git
 [submodule "modules/r10k"]
 	path = modules/r10k
@@ -62,17 +62,17 @@
 	path = modules/ruby
 	url = git@github.com:puppetlabs/puppetlabs-ruby.git
 [submodule "modules/memcached"]
-	path = puppet/modules/memcached
+	path = production/modules/memcached
 	url = git@github.com:saz/puppet-memcached.git
 [submodule "modules/roles"]
-	path = puppet/modules/roles
+	path = production/modules/roles
 	url = git@github.com:attachmentgenie/attachmentgenie-roles.git
 [submodule "modules/stacks"]
-	path = puppet/modules/stacks
+	path = production/modules/stacks
 	url = git@github.com:attachmentgenie/attachmentgenie-stacks.git
 [submodule "modules/profiles"]
-	path = puppet/modules/profiles
+	path = production/modules/profiles
 	url = git@github.com:attachmentgenie/attachmentgenie-profiles.git
 [submodule "puppet/modules/extlib"]
-	path = puppet/modules/extlib
+	path = production/modules/extlib
 	url = git@github.com:voxpupuli/puppet-extlib.git
