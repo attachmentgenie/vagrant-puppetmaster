@@ -8,8 +8,6 @@ profiles::puppet::server_foreman: true
 profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_reports: 'store, foreman'
 profiles::puppet::server_storeconfigs_backend: 'puppetdb'
-profiles::puppetdb::manage_dbserver: false
-profiles::puppetdb::manage_pg_repo: false
 stacks::node::mcollective: true
 stacks::puppetmaster::activemq: true
 stacks::puppetmaster::foreman: true
