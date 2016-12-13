@@ -1,10 +1,18 @@
 ---
+profiles::foreman::configure_epel_repo: true
 profiles::foreman_proxy::puppetca: true
+profiles::postgresql::databases:
+  foreman:
+    user: foreman
+    password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
+profiles::postgresql::manage_package_repo: true
 profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::server_foreman: true
 profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_reports: 'store, foreman'
 profiles::puppet::server_storeconfigs_backend: 'puppetdb'
+profiles::puppetdb::manage_dbserver: false
+stacks::database::postgresql: true
 stacks::puppetmaster::foreman: true
 stacks::puppetmaster::foreman_proxy: true
 stacks::puppetmaster::memcached: true
