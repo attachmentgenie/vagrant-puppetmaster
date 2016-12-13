@@ -29,10 +29,7 @@
 2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman) + node (puppet)
 
     cd vagrant/s
-    vagrant up puppetmaster
-    login to foreman and change the following settings
-    infrastructure, smart proxies, certificates, autosign entries, new =. *.s.vagrant
-    vagrant up node
+    vagrant up
     
     foreman  => https://puppetmaster.s.vagrant
     username: admin
@@ -44,12 +41,7 @@
 2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + activemq + mcollective) + node (puppet + mcollective)
 
     cd vagrant/m
-    vagrant up puppetmaster
-    login to foreman and change the following settings
-    administer, settings, puppet, enc_environment => false
-    administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
-    infrastructure, smart proxies, certificates, autosign entries, new =. *.s.vagrant
-    vagrant up node
+    vagrant up
     
     foreman  => https://puppetmaster.m.vagrant
     username: admin

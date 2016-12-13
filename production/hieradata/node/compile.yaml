@@ -13,11 +13,11 @@ profiles::puppet::server: true
 profiles::puppet::server_ca: false
 profiles::puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8140"
 profiles::r10k::puppet_repo_url: 'https://github.com/attachmentgenie/r10k-multi-puppetmaster.git'
+stacks::orchestration::mcollective: true
+stacks::orchestration::mcollective_r10k: true
 stacks::puppetmaster::activemq: false
 stacks::puppetmaster::foreman: false
 stacks::puppetmaster::memcached: false
-stacks::puppetmaster::mcollective: true
-stacks::puppetmaster::mcollective_r10k: true
 stacks::puppetmaster::puppetdb: false
 stacks::puppetmaster::puppetmaster: true
 stacks::puppetmaster::r10k: true

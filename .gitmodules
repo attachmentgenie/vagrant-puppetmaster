@@ -38,13 +38,13 @@
 	path = modules/tftp
 	url = git@github.com:theforeman/puppet-tftp.git
 [submodule "modules/mcollective"]
-	path = modules/mcollective
-	url = git@github.com:puppet-community/puppet-mcollective.git
+	path = production/modules/mcollective
+	url = git@github.com:voxpupuli/puppet-mcollective.git
 [submodule "modules/datacat"]
-	path = modules/datacat
+	path = production/modules/datacat
 	url = git@github.com:richardc/puppet-datacat.git
 [submodule "modules/activemq"]
-	path = modules/activemq
+	path = production/modules/activemq
 	url = git@github.com:puppetlabs/puppetlabs-activemq.git
 [submodule "modules/timezone"]
 	path = production/modules/timezone
@@ -53,10 +53,10 @@
 	path = production/modules/concat
 	url = git@github.com:puppetlabs/puppetlabs-concat.git
 [submodule "modules/r10k"]
-	path = modules/r10k
-	url = git@github.com:acidprime/r10k.git
+	path = production/modules/r10k
+	url = git@github.com:voxpupuli/puppet-r10k.git
 [submodule "modules/git"]
-	path = modules/git
+	path = production/modules/git
 	url = git@github.com:puppetlabs/puppetlabs-git.git
 [submodule "modules/ruby"]
 	path = modules/ruby

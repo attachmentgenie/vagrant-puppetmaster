@@ -1,5 +1,4 @@
 ---
-profiles::foreman::configure_epel_repo: true
 profiles::foreman_proxy::puppetca: true
 profiles::postgresql::databases:
   foreman:
@@ -12,6 +11,8 @@ profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_reports: 'store, foreman'
 profiles::puppet::server_storeconfigs_backend: 'puppetdb'
 profiles::puppetdb::manage_dbserver: false
+profiles::repositories::epel: true
+stacks::bootstrap::repos: true
 stacks::database::postgresql: true
 stacks::puppetmaster::foreman: true
 stacks::puppetmaster::foreman_proxy: true

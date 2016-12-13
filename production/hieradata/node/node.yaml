@@ -1,3 +1,5 @@
 ---
 profiles::mcollective::client: false
-stacks::puppetmaster::mcollective_r10k: false
+profiles::repositories::epel: false
+profiles::repositories::puppetlabs_deps: false
+stacks::orchestration::mcollective_r10k: false
