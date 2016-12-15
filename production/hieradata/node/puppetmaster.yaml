@@ -7,5 +7,5 @@ profiles::foreman::plugins:
   memcache: {}
 profiles::puppet::runmode: none
 profiles::puppet::server: true
-stacks::orchestration::mcollective_r10k: true
+profiles::r10k::mcollective: true
 stacks::puppetmaster::puppetmaster: true

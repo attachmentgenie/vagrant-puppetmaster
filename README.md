@@ -49,29 +49,23 @@
     puppetdb => http://puppetmaster.m.vagrant:8080
 
 ### L
-3 nodes => puppetmaster (puppet+ puppetmaster + puppetdb + foreman + activemq + mcollective) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+3 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + activemq + mcollective) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
     cd vagrant/l
-    vagrant up puppetmaster
-    login to foreman and change the following settings
-    administer, settings, puppet, enc_environment => false
-    administer, settings, puppetdb, puppetdb_address, puppetdb_dashboard_address, puppetdb_enabled => true
-    infrastructure, smart proxies, certificates, autosign entries, new =. *.l.vagrant
-    vagrant up compile
+    vagrant up puppetmaster compile
     vagrant ssh puppetmaster
-    sudo puppet cert clean compile.l.vagrant
-    exit
+    sudo -i
+    puppet cert clean compile.l.vagrant
+    exit, exit
     vagrant ssh compile
-    sudo rm -rf /var/lib/puppet/ssl
+    sudo rm -rf /etc/puppetlabs/puppet/ssl/
     exit
     vagrant provision compile
     vagrant ssh puppetmaster
-    sudo puppet cert --allow-dns-alt-names sign compile.l.vagrant
-    exit
+    sudo -i
+    puppet cert --allow-dns-alt-names sign compile.l.vagrant
+    exit, exit
     vagrant provision compile
-    vagrant ssh compile
-    sudo /etc/init.d/httpd restart
-    exit
     vagrant up node
     
     foreman  => https://puppetmaster.l.vagrant

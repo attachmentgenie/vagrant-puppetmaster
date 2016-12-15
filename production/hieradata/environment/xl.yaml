@@ -5,7 +5,6 @@ profiles::puppet::autosign: false
 profiles::puppet::server_foreman: true
 profiles::puppet::server_reports: 'store, foreman'
 profiles::puppet::server_storeconfigs_backend: 'puppetdb'
-stacks::node::mcollective: true
 stacks::orchestration::mcollective: true
 stacks::puppetmaster::foreman: true
 stacks::puppetmaster::foreman_proxy: true

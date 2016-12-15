@@ -16,7 +16,6 @@ profiles::repositories::epel: true
 profiles::repositories::puppetlabs_deps: true
 stacks::bootstrap::repos: true
 stacks::database::postgresql: true
-stacks::node::mcollective: true
 stacks::orchestration::mcollective: true
 stacks::puppetmaster::activemq: true
 stacks::puppetmaster::foreman: true

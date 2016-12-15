@@ -1,9 +1,6 @@
 ---
 classes:
   - roles::puppetmaster
-profiles::foreman::plugins:
-  puppetdb:
-    package: 'ruby193-rubygem-puppetdb_foreman'
 profiles::foreman_proxy::puppetca: false
 profiles::mcollective::client: false
 profiles::puppet::allow_any_crl_auth: false
@@ -12,9 +9,10 @@ profiles::puppet::runmode: none
 profiles::puppet::server: true
 profiles::puppet::server_ca: false
 profiles::puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8140"
+profiles::r10k::mcollective: true
 profiles::r10k::puppet_repo_url: 'https://github.com/attachmentgenie/r10k-multi-puppetmaster.git'
+stacks::database::postgresql: false
 stacks::orchestration::mcollective: true
-stacks::orchestration::mcollective_r10k: true
 stacks::puppetmaster::activemq: false
 stacks::puppetmaster::foreman: false
 stacks::puppetmaster::memcached: false
