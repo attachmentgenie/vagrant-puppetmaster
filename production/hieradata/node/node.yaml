@@ -1,5 +1,9 @@
 ---
 profiles::mcollective::client: false
+profiles::puppet::environment: production
+profiles::puppet::puppetmaster: "compile.%{::environment}.vagrant"
+profiles::puppet::runinterval: 300
+profiles::puppet::splaylimit: 300
 profiles::r10k::mcollective: false
 profiles::repositories::epel: false
 profiles::repositories::puppetlabs_deps: false

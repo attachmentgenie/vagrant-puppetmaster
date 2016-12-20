@@ -52,21 +52,7 @@
 3 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + activemq + mcollective) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
     cd vagrant/l
-    vagrant up puppetmaster compile
-    vagrant ssh puppetmaster
-    sudo -i
-    puppet cert clean compile.l.vagrant
-    exit, exit
-    vagrant ssh compile
-    sudo rm -rf /etc/puppetlabs/puppet/ssl/
-    exit
-    vagrant provision compile
-    vagrant ssh puppetmaster
-    sudo -i
-    puppet cert --allow-dns-alt-names sign compile.l.vagrant
-    exit, exit
-    vagrant provision compile
-    vagrant up node
+    vagrant up
     
     foreman  => https://puppetmaster.l.vagrant
     username: admin

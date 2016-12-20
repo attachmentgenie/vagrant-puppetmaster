@@ -3,6 +3,8 @@ profiles::firewall::ensure: stopped
 profiles::foreman::settings:
   enc_environment:
     value: false
+  modulepath:
+    value: '/etc/puppetlabs/code/modules'
   puppetdb_address:
     value: "https://puppetmaster.%{::environment}.vagrant:8081/v2/commands"
   puppetdb_dashboard_address:
