@@ -1,0 +1,45 @@
+---
+profiles::foreman::db_host: db.%{::environment}.vagrant
+profiles::foreman::db_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
+profiles::foreman::settings:
+  enc_environment:
+    value: false
+  modulepath:
+    value: '/etc/puppetlabs/code/modules'
+  puppetdb_address:
+    value: "https://puppetdb.%{::environment}.vagrant:8081/v2/commands"
+  puppetdb_dashboard_address:
+    value: "http://puppetdb.%{::environment}.vagrant:8080/pdb/dashboard"
+  puppetdb_enabled:
+    value: true
+  require_ssl_smart_proxies:
+    value: false
+profiles::mcollective::client: true
+profiles::postgresql::ip_mask_allow_all_users: '0.0.0.0/0'
+profiles::postgresql::listen_address: '*'
+profiles::postgresql::manage_package_repo: true
+profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
+profiles::puppet::dns_alt_names:
+  - puppet.xxl.vagrant
+profiles::puppetdb::database_host: db.%{::environment}.vagrant
+profiles::puppetdb::database_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
+profiles::puppetdb::manage_dbserver: false
+profiles::repositories::epel: true
+profiles::repositories::puppetlabs_deps: true
+stacks::bootstrap::repos: true
+stacks::orchestration::mcollective: true
+# These parameters should ONLY be set when the activemq node has been setup
+#profiles::mcollective::middleware_hosts:
+# - activemq.%{::environment}.vagrant
+# These parameters should NOT be set when the foreman node has been setup
+profiles::puppet::server_external_nodes: ''
+# These parameters should ONLY be set when the foreman node has been setup.
+# Also see node/{puppetmaster,compile}.yaml.
+#profiles::foreman_proxy::foreman_host: foreman.%{::environment}.vagrant
+#profiles::foreman_proxy::protocol: http
+#profiles::puppet::server_foreman: true
+#profiles::puppet::server_foreman_url: http://foreman.%{::environment}.vagrant
+#profiles::puppet::server_reports: 'store, foreman'
+# These parameters should ONLY be set when the puppetdb node has been setup
+#profiles::puppet::server_puppetdb_host: puppetdb.%{::environment}.vagrant
+#profiles::puppet::server_storeconfigs_backend: 'puppetdb'

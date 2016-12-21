@@ -75,10 +75,11 @@
     puppetdb => http://puppetdb.xl.vagrant:8080
     
     
-### XXL (WIP)
+### XXL
 7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
-    cd vagrant/xl
+    cd vagrant/xxl
+    comment the additional db section in xxl/hieradata/node/foreman.yaml}
     vagrant up puppetmaster db puppetdb foreman activemq compile
     uncomment the additional section in xxl/hieradata/{environment/xxl.yaml,node/{puppetmaster,compile}.yaml}
     comment the additional foreman section in xl/hieradata/environment/xl.yaml

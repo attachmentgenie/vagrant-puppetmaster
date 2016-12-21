@@ -1,0 +1,127 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  ###############################################################################
+  # Global plugin settings                                                      #
+  ###############################################################################
+  plugins = ["vagrant-hostmanager"]
+  plugins.each do |plugin|
+    unless Vagrant.has_plugin?(plugin)
+      raise plugin << " has not been installed."
+    end
+  end
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = true
+
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :machine
+  end
+
+  if Vagrant.has_plugin?("vagrant-puppet-install")
+    config.puppet_install.puppet_version = :latest
+  end
+
+  ###############################################################################
+  # Global provisioning settings                                                #
+  ###############################################################################
+  config.vm.box = "bento/centos-7.2"
+  env = 'xxl'
+  R10K = "r10k deploy environment -pv"
+
+  ###############################################################################
+  # Global VirtualBox settings                                                  #
+  ###############################################################################
+  config.vm.provider 'virtualbox' do |v|
+    v.customize [
+                    'modifyvm', :id,
+                    '--groups', '/Vagrant/puppetmaster'
+                ]
+  end
+
+  ###############################################################################
+  # VM definitions                                                              #
+  ###############################################################################
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.define :puppetmaster do |puppetmaster_config|
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = 4096
+      vb.cpus   = 2
+    end
+    puppetmaster_config.vm.host_name = "puppetmaster.#{env}.vagrant"
+    puppetmaster_config.vm.network :private_network, ip: "192.168.26.130"
+    puppetmaster_config.vm.network :forwarded_port, guest: 22, host: 2630
+    puppetmaster_config.vm.synced_folder '../../production/manifests/', "/etc/puppetlabs/code/environments/#{env}/manifests"
+    puppetmaster_config.vm.synced_folder '../../production/modules/', "/etc/puppetlabs/code/environments/#{env}/modules"
+    puppetmaster_config.vm.synced_folder '../../production/hieradata', "/etc/puppetlabs/code/environments/#{env}/hieradata"
+    puppetmaster_config.vm.provision :puppet do |puppet|
+      puppet.environment = "#{env}"
+      puppet.environment_path = "../../"
+      puppet.hiera_config_path = "../../production/hiera.yaml"
+    end
+  end
+
+  config.vm.define :db do |db_config|
+    db_config.vm.host_name = "db.#{env}.vagrant"
+    db_config.vm.network :forwarded_port, guest: 22, host: 2635
+    db_config.vm.network :private_network, ip: "192.168.26.135"
+    db_config.vm.provision "puppet_server" do |puppet|
+      puppet.options       = "-t --environment #{env} --profile"
+      puppet.puppet_server = "puppetmaster.#{env}.vagrant"
+    end
+  end
+
+  config.vm.define :puppetdb do |puppetdb_config|
+    puppetdb_config.vm.host_name = "puppetdb.#{env}.vagrant"
+    puppetdb_config.vm.network :forwarded_port, guest: 22, host: 2636
+    puppetdb_config.vm.network :private_network, ip: "192.168.26.136"
+    puppetdb_config.vm.provision "puppet_server" do |puppet|
+      puppet.options       = "-t --environment #{env} --profile"
+      puppet.puppet_server = "puppetmaster.#{env}.vagrant"
+    end
+  end
+
+  config.vm.define :foreman do |foreman_config|
+    foreman_config.vm.host_name = "foreman.#{env}.vagrant"
+    foreman_config.vm.network :forwarded_port, guest: 22, host: 2637
+    foreman_config.vm.network :private_network, ip: "192.168.26.137"
+    foreman_config.vm.provision "puppet_server" do |puppet|
+      puppet.options       = "-t --environment #{env} --profile"
+      puppet.puppet_server = "puppetmaster.#{env}.vagrant"
+    end
+  end
+
+  config.vm.define :activemq do |activemq_config|
+    activemq_config.vm.host_name = "activemq.#{env}.vagrant"
+    activemq_config.vm.network :forwarded_port, guest: 22, host: 2638
+    activemq_config.vm.network :private_network, ip: "192.168.26.138"
+    activemq_config.vm.provision "puppet_server" do |puppet|
+      puppet.options       = "-t --environment #{env} --profile"
+      puppet.puppet_server = "puppetmaster.#{env}.vagrant"
+    end
+  end
+
+  config.vm.define :compile do |compile_config|
+    compile_config.hostmanager.aliases = "puppet.#{env}.vagrant"
+    compile_config.vm.host_name = "compile.#{env}.vagrant"
+    compile_config.vm.network :forwarded_port, guest: 22, host: 2639
+    compile_config.vm.network :private_network, ip: "192.168.26.139"
+    compile_config.vm.provision "puppet_server" do |puppet|
+      puppet.options       = "-t --environment #{env} --profile"
+      puppet.puppet_server = "puppetmaster.#{env}.vagrant"
+    end
+    compile_config.vm.provision :shell, inline: R10K
+  end
+
+  config.vm.define :node do |node_config|
+    node_config.vm.host_name = "node.#{env}.vagrant"
+    node_config.vm.network :forwarded_port, guest: 22, host: 2640
+    node_config.vm.network :private_network, ip: "192.168.26.140"
+    node_config.vm.provision "puppet_server" do |puppet|
+      puppet.options       = "-t --environment #{env}"
+      puppet.puppet_server = "puppetmaster.#{env}.vagrant"
+    end
+  end
+end

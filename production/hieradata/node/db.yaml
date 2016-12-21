@@ -1,4 +1,13 @@
 ---
 classes:
   - roles::puppetmaster
-stacks::puppetmaster::db: true
+profiles::postgresql::databases:
+  foreman:
+    user: foreman
+    password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
+    grant: all
+  puppetdb:
+    user: puppetdb
+    password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
+    grant: all
+stacks::database::postgresql: true
