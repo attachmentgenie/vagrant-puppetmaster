@@ -2,7 +2,6 @@
 classes:
   - roles::puppetmaster
 profiles::foreman_proxy::puppetca: false
-profiles::mcollective::client: true
 profiles::puppet::allow_any_crl_auth: false
 profiles::puppet::hiera_yaml_datadir: "/etc/puppet/environments/%%{}{environment}/hieradata"
 profiles::puppet::runmode: none
@@ -19,3 +18,5 @@ stacks::puppetmaster::memcached: false
 stacks::puppetmaster::puppetdb: false
 stacks::puppetmaster::puppetmaster: true
 stacks::puppetmaster::r10k: true
+# The parameters should only be set when the foreman node has been setup
+#stacks::puppetmaster::foreman_proxy: true

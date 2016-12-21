@@ -5,5 +5,8 @@ profiles::foreman::plugins:
   puppetdb:
     package: 'tfm-rubygem-puppetdb_foreman'
   memcache: {}
+profiles::foreman::ssl: false
+profiles::foreman::user_groups: []
+stacks::database::postgresql: true
 stacks::puppetmaster::foreman: true
 stacks::puppetmaster::memcached: true

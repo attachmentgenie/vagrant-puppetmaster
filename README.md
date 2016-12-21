@@ -59,11 +59,14 @@
     passwd  : secret
     puppetdb => http://puppetmaster.l.vagrant:8080
     
-### XL (WIP)
+### XL
 6 nodes => puppetmaster (puppet + puppetmaster + mcollective) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
     
     cd vagrant/xl
-    vagrant up puppetmaster
+    vagrant up puppetmaster puppetdb foreman activemq compile
+    uncomment the additional section in xl/hieradata/{environment/xl.yaml,node/{puppetmaster,compile}.yaml}
+    comment the additional foreman section in xl/hieradata/environment/xl.yaml
+    vagrant provision puppetmaster puppetdb foreman activemq compile
     vagrant up node
     
     foreman  => https://foreman.xl.vagrant
@@ -72,8 +75,17 @@
     puppetdb => http://puppetdb.xl.vagrant:8080
     
     
-### XXL (TODO)
+### XXL (WIP)
 7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
-    foreman  => http://foreman.xxl.vagrant
-    puppetdb => http://puppetdb.xxl.vagrant:8080
+    cd vagrant/xl
+    vagrant up puppetmaster db puppetdb foreman activemq compile
+    uncomment the additional section in xxl/hieradata/{environment/xxl.yaml,node/{puppetmaster,compile}.yaml}
+    comment the additional foreman section in xl/hieradata/environment/xl.yaml
+    vagrant provision puppetmaster db puppetdb foreman activemq compile
+    vagrant up node
+    
+    foreman  => https://foreman.xl.vagrant
+    username: admin
+    passwd  : secret
+    puppetdb => http://puppetdb.xl.vagrant:8080
