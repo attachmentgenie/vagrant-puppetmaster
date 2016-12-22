@@ -1,5 +1,6 @@
 ---
 profiles::foreman_proxy::puppetca: true
+profiles::foreman::db_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
 profiles::mcollective::client: true
 profiles::postgresql::databases:
   foreman:

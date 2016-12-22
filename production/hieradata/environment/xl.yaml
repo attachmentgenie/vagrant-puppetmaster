@@ -1,4 +1,5 @@
 ---
+profiles::foreman::db_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
 profiles::foreman::settings:
   enc_environment:
     value: false
