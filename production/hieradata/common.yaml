@@ -14,6 +14,15 @@ profiles::foreman::settings:
 profiles::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant
 profiles::mcollective::middleware_hosts:
  - puppetmaster.%{::environment}.vagrant
+profiles::postgresql::databases:
+  foreman:
+    user: foreman
+    password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
+    grant: all
+  puppetdb:
+    user: puppetdb
+    password: puppetdb
+    grant: all
 profiles::puppet::autosign_domains:
   - '*.vagrant'
   - '*.test'

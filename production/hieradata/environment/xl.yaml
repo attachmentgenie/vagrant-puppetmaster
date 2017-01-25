@@ -22,7 +22,6 @@ profiles::postgresql::manage_package_repo: true
 profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::dns_alt_names:
   - puppet.xl.vagrant
-profiles::puppetdb::manage_dbserver: false
 profiles::repositories::epel: true
 profiles::repositories::puppetlabs_deps: true
 stacks::bootstrap::repos: true

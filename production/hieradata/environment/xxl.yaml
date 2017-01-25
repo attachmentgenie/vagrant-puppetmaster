@@ -23,7 +23,6 @@ profiles::puppet::dns_alt_names:
   - puppet.xxl.vagrant
 profiles::puppetdb::database_host: db.%{::environment}.vagrant
 profiles::puppetdb::database_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
-profiles::puppetdb::manage_dbserver: false
 profiles::repositories::epel: true
 profiles::repositories::puppetlabs_deps: true
 stacks::bootstrap::repos: true

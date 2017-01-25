@@ -1,9 +1,13 @@
 ---
+profiles::postgresql::databases:
+  puppetdb:
+    user: puppetdb
+    password: puppetdb
+    grant: all
 profiles::postgresql::manage_package_repo: true
 profiles::puppet::server_external_nodes: ''
 profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_reports: 'store, puppetdb'
 profiles::puppet::server_storeconfigs_backend: 'puppetdb'
-profiles::puppetdb::manage_dbserver: false
 stacks::database::postgresql: true
 stacks::puppetmaster::puppetdb: true
