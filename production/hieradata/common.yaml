@@ -14,10 +14,11 @@ profiles::foreman::settings:
 profiles::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant
 profiles::mcollective::middleware_hosts:
  - puppetmaster.%{::environment}.vagrant
+profiles::memcached::max_memory: 1024
 profiles::postgresql::databases:
   foreman:
     user: foreman
-    password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
+    password: foreman
     grant: all
   puppetdb:
     user: puppetdb

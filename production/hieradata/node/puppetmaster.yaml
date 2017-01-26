@@ -9,6 +9,6 @@ profiles::foreman::plugins:
 profiles::puppet::runmode: none
 profiles::puppet::server: true
 profiles::r10k::mcollective: true
-stacks::puppetmaster::puppetmaster: true
+stacks::puppet::puppetmaster: true
 # The parameters should only be set when the foreman node has been setup
-#stacks::puppetmaster::foreman_proxy: true
+#stacks::puppet::foreman_proxy: true

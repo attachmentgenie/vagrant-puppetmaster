@@ -7,7 +7,7 @@ profiles::foreman::plugins:
   memcache: {}
 profiles::foreman::ssl: false
 profiles::foreman::user_groups: []
-stacks::puppetmaster::foreman: true
-stacks::puppetmaster::memcached: true
+stacks::cache::memcached: true
+stacks::puppet::foreman: true
 # These parameters should NOT be set when the db node has been setup
 stacks::database::postgresql: true

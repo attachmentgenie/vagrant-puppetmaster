@@ -1,5 +1,4 @@
 ---
-profiles::foreman::db_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
 profiles::foreman::settings:
   enc_environment:
     value: false
@@ -14,10 +13,6 @@ profiles::foreman::settings:
   require_ssl_smart_proxies:
     value: false
 profiles::mcollective::client: true
-profiles::postgresql::databases:
-  foreman:
-    user: foreman
-    password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
 profiles::postgresql::manage_package_repo: true
 profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::dns_alt_names:

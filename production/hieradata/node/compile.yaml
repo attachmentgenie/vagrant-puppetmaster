@@ -10,13 +10,13 @@ profiles::puppet::server_ca: false
 profiles::puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8140"
 profiles::r10k::mcollective: true
 profiles::r10k::puppet_repo_url: 'https://github.com/attachmentgenie/r10k-multi-puppetmaster.git'
+stacks::cache::memcached: false
 stacks::database::postgresql: false
+stacks::mq::activemq: false
 stacks::orchestration::mcollective: true
-stacks::puppetmaster::activemq: false
-stacks::puppetmaster::foreman: false
-stacks::puppetmaster::memcached: false
-stacks::puppetmaster::puppetdb: false
-stacks::puppetmaster::puppetmaster: true
-stacks::puppetmaster::r10k: true
+stacks::puppet::foreman: false
+stacks::puppet::puppetdb: false
+stacks::puppet::puppetmaster: true
+stacks::puppet::r10k: true
 # The parameters should only be set when the foreman node has been setup
-#stacks::puppetmaster::foreman_proxy: true
+#stacks::puppet::foreman_proxy: true

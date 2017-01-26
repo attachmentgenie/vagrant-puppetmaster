@@ -10,4 +10,4 @@ profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_reports: 'store, puppetdb'
 profiles::puppet::server_storeconfigs_backend: 'puppetdb'
 stacks::database::postgresql: true
-stacks::puppetmaster::puppetdb: true
+stacks::puppet::puppetdb: true

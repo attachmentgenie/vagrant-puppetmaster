@@ -1,6 +1,5 @@
 ---
 profiles::foreman::db_host: db.%{::environment}.vagrant
-profiles::foreman::db_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
 profiles::foreman::settings:
   enc_environment:
     value: false
@@ -22,7 +21,6 @@ profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::dns_alt_names:
   - puppet.xxl.vagrant
 profiles::puppetdb::database_host: db.%{::environment}.vagrant
-profiles::puppetdb::database_password: 9pWcoUjKq7EtHeXo5Fg8rcs6jssqMVhK
 profiles::repositories::epel: true
 profiles::repositories::puppetlabs_deps: true
 stacks::bootstrap::repos: true
