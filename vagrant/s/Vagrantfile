@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
   if vagrant_config['puppet_environment']
     environment = vagrant_config['puppet_environment']
   else
-    environment = '#{environment}'
+    environment = 'production'
   end
 
   if vagrant_config['puppet_version']
