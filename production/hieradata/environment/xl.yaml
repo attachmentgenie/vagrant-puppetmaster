@@ -4,6 +4,8 @@ profiles::foreman::settings:
     value: false
   modulepath:
     value: '/etc/puppetlabs/code/modules'
+  puppet_server:
+    value: "puppetmaster.%{::environment}.vagrant"
   puppetdb_address:
     value: "https://puppetdb.%{::environment}.vagrant:8081/v2/commands"
   puppetdb_dashboard_address:

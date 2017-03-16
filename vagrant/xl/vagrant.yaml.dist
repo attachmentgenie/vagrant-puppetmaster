@@ -65,5 +65,4 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xl.vagrant
 puppet_environment: xl
-puppet_version: 4.8.2
 virtualbox_group: '/Vagrant/puppetmaster'

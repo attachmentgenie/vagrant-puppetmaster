@@ -1,0 +1,5 @@
+---
+.gitignore:
+  unmanaged: true
+Vagrantfile:
+  unmanaged: true
