@@ -1,4 +1,4 @@
-hiera_include('classes',['roles::node'])
+lookup('classes', Array[String], 'unique', ['roles::node']).include
 
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 

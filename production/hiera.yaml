@@ -1,8 +1,12 @@
 ---
-# Managed by puppet
-:backends:
-  - yaml
-:hierarchy:
-  - "node/%{::hostname}"
-  - "environment/%{::environment}"
-  - "common"
+version: 5
+hierarchy:
+  - name: "Per-node data"
+    path: "node/%{::hostname}.yaml"
+  - name: "Environment"
+    path: "environment/%{::environment}.yaml"
+  - name: "Shared data"
+    path: "common.yaml"
+defaults:
+  data_hash: yaml_data
+  datadir: hieradata
