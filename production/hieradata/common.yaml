@@ -26,6 +26,7 @@ profiles::postgresql::databases:
     user: puppetdb
     password: puppetdb
     grant: all
+profiles::postgresql::manage_repo: true
 profiles::puppet::autosign_domains:
   - '*.vagrant'
   - '*.test'
