@@ -62,7 +62,7 @@ Vagrant.configure("2") do |config|
       target = @machine.config.vm.hostname.to_s
       puppetmaster = "puppetmaster"
       if target != puppetmaster
-        system("vagrant ssh #{puppetmaster} -c 'sudo /usr/bin/puppet cert clean #{target}'" )
+        system("vagrant ssh #{puppetmaster} -c 'sudo /opt/puppetlabs/bin/puppet cert clean #{target}'" )
       end
     end
   end

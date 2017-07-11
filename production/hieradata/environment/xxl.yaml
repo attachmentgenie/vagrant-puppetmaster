@@ -21,6 +21,7 @@ profiles::postgresql::listen_address: '*'
 profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::dns_alt_names:
   - puppet.xxl.vagrant
+profiles::puppet::puppetmaster: "compile.%{::environment}.vagrant"
 profiles::puppetdb::database_host: db.%{::environment}.vagrant
 profiles::repositories::epel: true
 profiles::repositories::puppetlabs_deps: true

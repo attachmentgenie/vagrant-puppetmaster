@@ -4,6 +4,7 @@ profiles::mcollective::client: true
 profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::dns_alt_names:
   - puppet.l.vagrant
+profiles::puppet::puppetmaster: "compile.%{::environment}.vagrant"
 profiles::puppet::server_foreman: true
 profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::puppet::server_reports: 'store, foreman'

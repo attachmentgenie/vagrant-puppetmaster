@@ -18,6 +18,7 @@ profiles::mcollective::client: true
 profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::puppet::dns_alt_names:
   - puppet.xl.vagrant
+profiles::puppet::puppetmaster: "compile.%{::environment}.vagrant"
 profiles::repositories::epel: true
 profiles::repositories::puppetlabs_deps: true
 stacks::bootstrap::repos: true
