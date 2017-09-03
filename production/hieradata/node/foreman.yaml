@@ -1,13 +1,13 @@
 ---
 classes:
   - roles::puppetmaster
-profiles::foreman::plugins:
+profiles::cache::memcached: true
+profiles::puppet::foreman: true
+profiles::puppet::foreman::plugins:
   puppetdb:
     package: 'tfm-rubygem-puppetdb_foreman'
   memcache: {}
-profiles::foreman::ssl: false
-profiles::foreman::user_groups: []
-stacks::cache::memcached: true
-stacks::puppet::foreman: true
+profiles::puppet::foreman::ssl: false
+profiles::puppet::foreman::user_groups: []
 # These parameters should NOT be set when the db node has been setup
-stacks::database::postgresql: true
+profiles::database::postgresql: true

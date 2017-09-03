@@ -1,5 +1,5 @@
 ---
 classes:
   - roles::puppetmaster
-stacks::mq::activemq: true
-stacks::orchestration::mcollective: true
+profiles::mq::activemq: true
+profiles::orchestration::mcollective: true

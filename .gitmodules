@@ -73,3 +73,6 @@
 [submodule "production/modules/dns"]
 	path = production/modules/dns
 	url = https://github.com/theforeman/puppet-dns.git
+[submodule "production/modules/hocon"]
+	path = production/modules/hocon
+	url = https://github.com/puppetlabs/puppetlabs-hocon.git

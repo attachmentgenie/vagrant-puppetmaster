@@ -1,5 +1,14 @@
 ---
-profiles::foreman::settings:
+profiles::bootstrap::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
+profiles::bootstrap::puppet::dns_alt_names:
+  - puppet.xl.vagrant
+profiles::bootstrap::puppet::puppetmaster: "compile.%{::environment}.vagrant"
+profiles::bootstrap::repos: true
+profiles::bootstrap::repositories::epel: true
+profiles::bootstrap::repositories::puppetlabs_deps: true
+profiles::orchestration::mcollective: true
+profiles::orchestration::mcollective::client: true
+profiles::puppet::foreman::settings:
   enc_environment:
     value: false
   modulepath:
@@ -14,27 +23,18 @@ profiles::foreman::settings:
     value: true
   require_ssl_smart_proxies:
     value: false
-profiles::mcollective::client: true
-profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
-profiles::puppet::dns_alt_names:
-  - puppet.xl.vagrant
-profiles::puppet::puppetmaster: "compile.%{::environment}.vagrant"
-profiles::repositories::epel: true
-profiles::repositories::puppetlabs_deps: true
-stacks::bootstrap::repos: true
-stacks::orchestration::mcollective: true
 # These parameters should ONLY be set when the activemq node has been setup
-#profiles::mcollective::middleware_hosts:
+#profiles::orchestration::mcollective::middleware_hosts:
 # - activemq.%{::environment}.vagrant
 # These parameters should NOT be set when the foreman node has been setup
-profiles::puppet::server_external_nodes: ''
+profiles::bootstrap::puppet::server_external_nodes: ''
 # These parameters should ONLY be set when the foreman node has been setup.
 # Also see node/{puppetmaster,compile}.yaml.
-#profiles::foreman_proxy::foreman_host: foreman.%{::environment}.vagrant
-#profiles::foreman_proxy::protocol: http
-#profiles::puppet::server_foreman: true
-#profiles::puppet::server_foreman_url: http://foreman.%{::environment}.vagrant
-#profiles::puppet::server_reports: 'store, foreman'
+#profiles::puppet::foreman_proxy::foreman_host: foreman.%{::environment}.vagrant
+#profiles::puppet::foreman_proxy::protocol: http
+#profiles::bootstrap::puppet::server_foreman: true
+#profiles::bootstrap::puppet::server_foreman_url: http://foreman.%{::environment}.vagrant
+#profiles::bootstrap::puppet::server_reports: 'store, foreman'
 # These parameters should ONLY be set when the puppetdb node has been setup
-#profiles::puppet::server_puppetdb_host: puppetdb.%{::environment}.vagrant
-#profiles::puppet::server_storeconfigs_backend: 'puppetdb'
+#profiles::bootstrap::puppet::server_puppetdb_host: puppetdb.%{::environment}.vagrant
+#profiles::bootstrap::puppet::server_storeconfigs_backend: 'puppetdb'

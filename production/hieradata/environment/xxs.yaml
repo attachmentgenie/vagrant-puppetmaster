@@ -1,2 +1,2 @@
 ---
-profiles::puppet::server_external_nodes: ''
+profiles::bootstrap::puppet::server_external_nodes: ''

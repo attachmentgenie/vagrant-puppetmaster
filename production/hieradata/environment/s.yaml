@@ -1,14 +1,14 @@
 ---
-profiles::foreman_proxy::puppetca: true
-profiles::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
-profiles::puppet::server_foreman: true
-profiles::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
-profiles::puppet::server_reports: 'store, foreman'
-profiles::puppet::server_storeconfigs_backend: 'puppetdb'
-profiles::repositories::epel: true
-stacks::bootstrap::repos: true
-stacks::cache::memcached: true
-stacks::database::postgresql: true
-stacks::puppet::foreman: true
-stacks::puppet::foreman_proxy: true
-stacks::puppet::puppetdb: true
+profiles::bootstrap::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
+profiles::bootstrap::puppet::server_foreman: true
+profiles::bootstrap::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
+profiles::bootstrap::puppet::server_reports: 'store, foreman'
+profiles::bootstrap::puppet::server_storeconfigs_backend: 'puppetdb'
+profiles::bootstrap::repos: true
+profiles::bootstrap::repositories::epel: true
+profiles::cache::memcached: true
+profiles::database::postgresql: true
+profiles::puppet::foreman: true
+profiles::puppet::foreman_proxy: true
+profiles::puppet::foreman_proxy::puppetca: true
+profiles::puppet::puppetdb: true

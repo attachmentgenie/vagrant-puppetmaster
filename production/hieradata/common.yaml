@@ -1,6 +1,27 @@
 ---
-profiles::firewall::ensure: stopped
-profiles::foreman::settings:
+profiles::bootstrap::firewall: true
+profiles::bootstrap::firewall::ensure: stopped
+profiles::bootstrap::puppet: true
+profiles::bootstrap::puppet::autosign_domains:
+  - '*.vagrant'
+  - '*.test'
+profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/hieradata"
+profiles::bootstrap::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
+profiles::bootstrap::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
+profiles::database::postgresql::databases:
+  foreman:
+    user: foreman
+    password: foreman
+    grant: all
+  puppetdb:
+    user: puppetdb
+    password: puppetdb
+    grant: all
+profiles::database::postgresql::manage_repo: true
+profiles::cache::memcached::max_memory: 1024
+profiles::orchestration::mcollective::middleware_hosts:
+ - puppetmaster.%{::environment}.vagrant
+profiles::puppet::foreman::settings:
   enc_environment:
     value: false
   modulepath:
@@ -13,24 +34,4 @@ profiles::foreman::settings:
     value: "http://puppetmaster.%{::environment}.vagrant:8080/pdb/dashboard"
   puppetdb_enabled:
     value: true
-profiles::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant
-profiles::mcollective::middleware_hosts:
- - puppetmaster.%{::environment}.vagrant
-profiles::memcached::max_memory: 1024
-profiles::postgresql::databases:
-  foreman:
-    user: foreman
-    password: foreman
-    grant: all
-  puppetdb:
-    user: puppetdb
-    password: puppetdb
-    grant: all
-profiles::postgresql::manage_repo: true
-profiles::puppet::autosign_domains:
-  - '*.vagrant'
-  - '*.test'
-profiles::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/hieradata"
-profiles::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
-profiles::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
-stacks::bootstrap::puppet: true
+profiles::puppet::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant

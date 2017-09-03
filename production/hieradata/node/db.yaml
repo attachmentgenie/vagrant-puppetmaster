@@ -1,4 +1,4 @@
 ---
 classes:
   - roles::puppetmaster
-stacks::database::postgresql: true
+profiles::database::postgresql: true

@@ -1,14 +1,15 @@
 ---
 classes:
   - roles::puppetmaster
-profiles::foreman_proxy::puppetca: true
-profiles::foreman::plugins:
+profiles::bootstrap::puppet::runmode: none
+profiles::bootstrap::puppet::server: true
+profiles::puppet::foreman_proxy::custom_repo: true
+profiles::puppet::foreman_proxy::puppetca: true
+profiles::puppet::foreman::plugins:
   puppetdb:
     package: 'tfm-rubygem-puppetdb_foreman'
   memcache: {}
-profiles::puppet::runmode: none
-profiles::puppet::server: true
-profiles::r10k::mcollective: true
-stacks::puppet::puppetmaster: true
+profiles::puppet::puppetmaster: true
+profiles::puppet::r10k::mcollective: true
 # The parameters should only be set when the foreman node has been setup
-#stacks::puppet::foreman_proxy: true
+#profiles::puppet::foreman_proxy: true
