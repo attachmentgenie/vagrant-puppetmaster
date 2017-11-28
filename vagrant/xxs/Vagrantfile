@@ -120,7 +120,11 @@ Vagrant.configure("2") do |config|
         case node["provision_type"]
         when 'puppet_agent'
           srv.vm.provision "puppet_server" do |puppet|
-            puppet.options       = "-t --environment #{environment}"
+            if node["options"]
+              puppet.options = node["options"]
+            else
+              puppet.options = "-t --environment #{environment}"
+            end
             if node["puppetmaster"]
               puppet.puppet_server = node["puppetmaster"]
             else

@@ -30,6 +30,7 @@ nodes:
       box: bento/centos-7.4
       hostname: node.l.vagrant
       ip: 192.168.25.140
+      options: '-t --environment production --ca_server puppetmaster.l.vagrant'
       ports:
         - guest: 22
           host: 2540
