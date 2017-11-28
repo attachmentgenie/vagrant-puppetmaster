@@ -76,3 +76,6 @@
 [submodule "production/modules/hocon"]
 	path = production/modules/hocon
 	url = https://github.com/puppetlabs/puppetlabs-hocon.git
+[submodule "production/modules/puppet_authorization"]
+	path = production/modules/puppet_authorization
+	url = https://github.com/puppetlabs/puppetlabs-puppet_authorization.git

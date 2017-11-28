@@ -1,7 +1,7 @@
 ---
 nodes:
     - name: puppetmaster
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       cpus: 2
       environment_path: '../../'
       hiera_config_path: '../../production/hiera.yaml'
@@ -13,13 +13,11 @@ nodes:
         - guest: 22
           host: 2530
       synced_folders:
-        - src: '../../production/manifests/'
-          dst: '/etc/puppetlabs/code/environments/l/manifests'
-        - src: '../../production/modules/'
-          dst: '/etc/puppetlabs/code/environments/l/modules'
+        - src: '../../production'
+          dst: '/etc/puppetlabs/code/environments/l'
     - name: compile
       aliases: "puppet.l.vagrant"
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       hostname: compile.l.vagrant
       ip: 192.168.25.139
       ports:
@@ -29,7 +27,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.l.vagrant
     - name: node
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       hostname: node.l.vagrant
       ip: 192.168.25.140
       ports:
@@ -38,5 +36,4 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: compile.l.vagrant
 puppet_environment: l
-puppet_version: 4.10.6
 virtualbox_group: '/Vagrant/puppetmaster'

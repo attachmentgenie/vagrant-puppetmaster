@@ -1,7 +1,7 @@
 ---
 nodes:
     - name: puppetmaster
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       cpus: 2
       environment_path: '../../'
       hiera_config_path: '../../production/hiera.yaml'
@@ -13,12 +13,10 @@ nodes:
         - guest: 22
           host: 2630
       synced_folders:
-        - src: '../../production/manifests/'
-          dst: '/etc/puppetlabs/code/environments/l/manifests'
-        - src: '../../production/modules/'
-          dst: '/etc/puppetlabs/code/environments/l/modules'
+        - src: '../../production'
+          dst: '/etc/puppetlabs/code/environments/xl'
     - name: puppetdb
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       hostname: puppetdb.xl.vagrant
       ip: 192.168.26.136
       ports:
@@ -27,7 +25,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xl.vagrant
     - name: foreman
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       hostname: foreman.xl.vagrant
       ip: 192.168.26.137
       ports:
@@ -36,7 +34,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xl.vagrant
     - name: activemq
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       hostname: activemq.xl.vagrant
       ip: 192.168.26.138
       ports:
@@ -46,7 +44,7 @@ nodes:
       puppetmaster: puppetmaster.xl.vagrant
     - name: compile
       aliases: "puppet.xl.vagrant"
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       hostname: compile.xl.vagrant
       ip: 192.168.26.139
       ports:
@@ -56,7 +54,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xl.vagrant
     - name: node
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       hostname: node.xl.vagrant
       ip: 192.168.26.140
       ports:
