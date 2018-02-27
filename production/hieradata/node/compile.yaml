@@ -7,7 +7,8 @@ profiles::bootstrap::puppet::runmode: none
 profiles::bootstrap::puppet::server: true
 profiles::bootstrap::puppet::server_ca: false
 profiles::bootstrap::puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8140"
-profiles::cache::memcached: false
+# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
+#profiles::cache::memcached: false
 profiles::database::postgresql: false
 profiles::mq::activemq: false
 profiles::orchestration::mcollective: true

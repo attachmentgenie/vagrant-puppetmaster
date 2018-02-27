@@ -8,7 +8,8 @@ profiles::puppet::foreman_proxy::puppetca: true
 profiles::puppet::foreman::plugins:
   puppetdb:
     package: 'tfm-rubygem-puppetdb_foreman'
-  memcache: {}
+# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
+#  memcache: {}
 profiles::puppet::puppetmaster: true
 profiles::puppet::r10k::mcollective: true
 # The parameters should only be set when the foreman node has been setup

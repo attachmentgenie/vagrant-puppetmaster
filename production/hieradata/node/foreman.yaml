@@ -1,12 +1,14 @@
 ---
 classes:
   - roles::puppetmaster
-profiles::cache::memcached: true
+# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
+#profiles::cache::memcached: true
 profiles::puppet::foreman: true
 profiles::puppet::foreman::plugins:
   puppetdb:
     package: 'tfm-rubygem-puppetdb_foreman'
-  memcache: {}
+# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
+#  memcache: {}
 profiles::puppet::foreman::ssl: false
 profiles::puppet::foreman::user_groups: []
 # These parameters should NOT be set when the db node has been setup

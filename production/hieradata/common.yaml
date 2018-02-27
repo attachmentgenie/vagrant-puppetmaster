@@ -18,7 +18,8 @@ profiles::database::postgresql::databases:
     password: puppetdb
     grant: all
 profiles::database::postgresql::manage_repo: true
-profiles::cache::memcached::max_memory: 1024
+# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
+#profiles::cache::memcached::max_memory: 1024
 profiles::orchestration::mcollective::middleware_hosts:
  - puppetmaster.%{::environment}.vagrant
 profiles::puppet::foreman::settings:
