@@ -1,8 +1,7 @@
-source :rubygems
+source ENV['GEM_SOURCE'] || "https://rubygems.org"
 
-puppetversion = ENV.key?('PUPPET_VERSION') ? "= #{ENV['PUPPET_VERSION']}" : ['>= 2.7']
+group :integration do
+  gem 'inspec',          :require => false
+end
 
-gem 'rake'
-gem 'puppet-lint'
-gem 'rspec-puppet'
-gem 'puppet', puppetversion
+# vim:ft=ruby
