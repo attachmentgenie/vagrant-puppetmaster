@@ -13,18 +13,23 @@ end
 
 task default: %w[inspec]
 
-task :inspec do
-  if vagrant_config['nodes']
-    vagrant_config['nodes'].each do |node|
-      name = node["name"]
-      if(File.directory?("test/#{name}"))
-        puts "Profile found for node #{name}"
-        sh("inspec exec test/#{name} -t ssh://vagrant@127.0.0.1:$(vagrant port --guest 22 #{name}) -i #{vagrant_root}/.vagrant/machines/#{name}/virtualbox/private_key")
-      else
-        puts "No profile found for node #{name}"
-      end
-    end
+task :inspec, [:node] do |t, args|
+  if args[:node]
+    nodes = [{'name' => args[:node]}]
+  elsif vagrant_config['nodes']
+    nodes = vagrant_config['nodes']
   else
     raise "Node definitions are missing."
+  end
+
+  nodes.each do |node|
+    name = node["name"]
+    puts
+    if(File.directory?("test/#{name}"))
+      puts "Profile found for node #{name}"
+      sh("inspec exec test/#{name} --sudo -t ssh://vagrant@127.0.0.1:$(vagrant port --guest 22 #{name}) -i #{vagrant_root}/.vagrant/machines/#{name}/virtualbox/private_key")
+    else
+      puts "No profile found for node #{name}"
+    end
   end
 end
