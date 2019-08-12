@@ -25,14 +25,10 @@ profiles::orchestration::mcollective::middleware_hosts:
 profiles::puppet::foreman::settings:
   enc_environment:
     value: false
-  modulepath:
-    value: '/etc/puppetlabs/code/modules'
   puppet_server:
     value: "puppetmaster.%{::environment}.vagrant"
   puppetdb_address:
     value: "https://puppetmaster.%{::environment}.vagrant:8081/v2/commands"
-  puppetdb_dashboard_address:
-    value: "http://puppetmaster.%{::environment}.vagrant:8080/pdb/dashboard"
   puppetdb_enabled:
     value: true
 profiles::puppet::foreman_proxy::foreman_host: puppetmaster.%{::environment}.vagrant

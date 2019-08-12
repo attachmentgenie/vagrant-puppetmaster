@@ -11,14 +11,10 @@ profiles::orchestration::mcollective::client: true
 profiles::puppet::foreman::settings:
   enc_environment:
     value: false
-  modulepath:
-    value: '/etc/puppetlabs/code/modules'
   puppet_server:
     value: "puppetmaster.%{::environment}.vagrant"
   puppetdb_address:
     value: "https://puppetdb.%{::environment}.vagrant:8081/v2/commands"
-  puppetdb_dashboard_address:
-    value: "http://puppetdb.%{::environment}.vagrant:8080/pdb/dashboard"
   puppetdb_enabled:
     value: true
   require_ssl_smart_proxies:
