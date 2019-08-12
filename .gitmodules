@@ -79,3 +79,6 @@
 [submodule "production/modules/puppet_authorization"]
 	path = production/modules/puppet_authorization
 	url = https://github.com/puppetlabs/puppetlabs-puppet_authorization.git
+[submodule "production/modules/systemd"]
+	path = production/modules/systemd
+	url = https://github.com/camptocamp/puppet-systemd.git
