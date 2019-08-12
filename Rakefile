@@ -27,9 +27,10 @@ task :inspec, [:node] do |t, args|
     puts
     if(File.directory?("test/#{name}"))
       puts "Profile found for node #{name}"
-      sh("inspec exec test/#{name} --sudo -t ssh://vagrant@127.0.0.1:$(vagrant port --guest 22 #{name}) -i #{vagrant_root}/.vagrant/machines/#{name}/virtualbox/private_key")
+      sh("bundle exec inspec exec test/#{name} --sudo -t ssh://vagrant@127.0.0.1:$(vagrant port --guest 22 #{name}) -i #{vagrant_root}/.vagrant/machines/#{name}/virtualbox/private_key")
     else
       puts "No profile found for node #{name}"
     end
   end
 end
+
