@@ -17,7 +17,7 @@ profiles::database::postgresql::databases:
     user: puppetdb
     password: puppetdb
     grant: all
-profiles::database::postgresql::manage_repo: true
+profiles::database::postgresql::manage_package_repo: true
 # Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
 #profiles::cache::memcached::max_memory: 1024
 profiles::orchestration::mcollective::middleware_hosts:
