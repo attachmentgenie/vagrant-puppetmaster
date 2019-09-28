@@ -1,4 +1,6 @@
-# Creating a disposable test environment
+#  vagrant-puppetmaster
+
+A vagrant setup that creates puppetmasters
 
 ## Requirements
     Virtualbox                  => https://www.virtualbox.org
@@ -6,10 +8,25 @@
     vagrant-hostmanager         => vagrant plugin install vagrant-hostmanager
     vagrant-puppet-install      => vagrant plugin install vagrant-puppet-install
     vagrant-cachier  (optional) => vagrant plugin install vagrant-cachier
-    vagrant-triggers (optional) => vagrant plugin install vagrant-triggers
+    
+## Preparation
+
+    git submodule update --init
+    bundle install
     
 ## Setup
-    git submodule update --init
+
+    vagrant up
+
+## Inspec tests
+
+    bundle exec rake
+    bundle exec rake inspec[centos7] 
+
+## TLDR
+
+### (G)UI interfaces
+
     
 ## Environments
 
