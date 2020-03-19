@@ -11,8 +11,6 @@ profiles::orchestration::mcollective::client: true
 profiles::puppet::foreman::settings:
   enc_environment:
     value: false
-  puppet_server:
-    value: "puppetmaster.%{::environment}.vagrant"
   puppetdb_address:
     value: "https://puppetdb.%{::environment}.vagrant:8081/v2/commands"
   puppetdb_enabled:
