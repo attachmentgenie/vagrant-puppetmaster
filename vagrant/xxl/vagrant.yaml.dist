@@ -1,11 +1,11 @@
 ---
 nodes:
     - name: puppetmaster
-      box: bento/centos-7.5
+      box: bento/centos-7.7
       cpus: 2
       environment_path: '../../'
       hiera_config_path: '../../production/hiera.yaml'
-      hiera_path: '../../production/hieradata'
+      hiera_path: '../../production/data'
       hostname: puppetmaster.xxl.vagrant
       ip: 192.168.27.130
       memory: 4096
@@ -16,7 +16,7 @@ nodes:
         - src: '../../production'
           dst: '/etc/puppetlabs/code/environments/xxl'
     - name: db
-      box: bento/centos-7.5
+      box: bento/centos-7.7
       hostname: db.xxl.vagrant
       ip: 192.168.27.135
       ports:
@@ -25,7 +25,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xxl.vagrant
     - name: puppetdb
-      box: bento/centos-7.5
+      box: bento/centos-7.7
       hostname: puppetdb.xxl.vagrant
       ip: 192.168.27.136
       ports:
@@ -34,7 +34,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xxl.vagrant
     - name: foreman
-      box: bento/centos-7.5
+      box: bento/centos-7.7
       hostname: foreman.xxl.vagrant
       ip: 192.168.27.137
       ports:
@@ -43,7 +43,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xxl.vagrant
     - name: activemq
-      box: bento/centos-7.5
+      box: bento/centos-7.7
       hostname: activemq.xxl.vagrant
       ip: 192.168.27.138
       ports:
@@ -53,7 +53,7 @@ nodes:
       puppetmaster: puppetmaster.xxl.vagrant
     - name: compile
       aliases: "puppet.xxl.vagrant"
-      box: bento/centos-7.5
+      box: bento/centos-7.7
       hostname: compile.xxl.vagrant
       ip: 192.168.27.139
       ports:
@@ -63,7 +63,7 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xxl.vagrant
     - name: node
-      box: bento/centos-7.5
+      box: bento/centos-7.7
       hostname: node.xxl.vagrant
       ip: 192.168.27.140
       options: '-t --environment production --ca_server puppetmaster.xxl.vagrant'

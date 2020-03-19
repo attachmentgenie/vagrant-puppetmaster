@@ -82,3 +82,6 @@
 [submodule "production/modules/systemd"]
 	path = production/modules/systemd
 	url = https://github.com/camptocamp/puppet-systemd.git
+[submodule "production/modules/redis"]
+	path = production/modules/redis
+	url = https://github.com/voxpupuli/puppet-redis.git
