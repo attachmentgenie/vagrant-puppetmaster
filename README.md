@@ -82,8 +82,8 @@ A vagrant setup that creates puppetmasters
     
     cd vagrant/xl
     vagrant up puppetmaster puppetdb foreman activemq compile
-    uncomment the additional section in xl/hieradata/{environment/xl.yaml,node/{puppetmaster,compile}.yaml}
-    comment the additional foreman section in xl/hieradata/environment/xl.yaml
+    uncomment the additional section in xl/data/{environment/xl.yaml,node/{puppetmaster,compile}.yaml}
+    comment the additional foreman section in xl/data/environment/xl.yaml
     vagrant provision puppetmaster puppetdb foreman activemq compile
     vagrant up node
     
@@ -97,10 +97,10 @@ A vagrant setup that creates puppetmasters
 7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
 
     cd vagrant/xxl
-    comment the additional db section in xxl/hieradata/node/foreman.yaml}
+    comment the additional db section in xxl/data/node/foreman.yaml}
     vagrant up puppetmaster db puppetdb foreman activemq compile
-    uncomment the additional section in xxl/hieradata/{environment/xxl.yaml,node/{puppetmaster,compile}.yaml}
-    comment the additional foreman section in xl/hieradata/environment/xl.yaml
+    uncomment the additional section in xxl/data/{environment/xxl.yaml,node/{puppetmaster,compile}.yaml}
+    comment the additional foreman section in xl/data/environment/xl.yaml
     vagrant provision puppetmaster db puppetdb foreman activemq compile
     vagrant up node
     
