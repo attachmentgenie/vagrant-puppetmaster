@@ -133,9 +133,9 @@ Vagrant.configure("2") do |config|
           end
         else
           if node["hiera_path"]
-            srv.vm.synced_folder node["hiera_path"], "/etc/puppetlabs/code/environments/#{environment}/hieradata"
+            srv.vm.synced_folder node["hiera_path"], "/etc/puppetlabs/code/environments/#{environment}/data"
           else
-            srv.vm.synced_folder "#{environment}/hieradata", "/etc/puppetlabs/code/environments/#{environment}/hieradata"
+            srv.vm.synced_folder "#{environment}/data", "/etc/puppetlabs/code/environments/#{environment}/data"
           end
           srv.vm.provision :puppet do |puppet|
             puppet.environment = "#{environment}"

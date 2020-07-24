@@ -56,7 +56,7 @@ A vagrant setup that creates puppetmasters
 
 
 ### M
-2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + activemq + mcollective) + node (puppet + mcollective)
+2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + bolt) + node (puppet)
 
     cd vagrant/m
     vagrant up
@@ -67,7 +67,7 @@ A vagrant setup that creates puppetmasters
     puppetdb => http://puppetmaster.m.vagrant:8080
 
 ### L
-3 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + activemq + mcollective) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+3 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + bolt) + compile (puppet + puppetmaster) +  node (puppet)
 
     cd vagrant/l
     vagrant up
@@ -78,13 +78,13 @@ A vagrant setup that creates puppetmasters
     puppetdb => http://puppetmaster.l.vagrant:8080
     
 ### XL
-6 nodes => puppetmaster (puppet + puppetmaster + mcollective) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+5 nodes => puppetmaster (puppet + puppetmaster) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
     
     cd vagrant/xl
-    vagrant up puppetmaster puppetdb foreman activemq compile
+    vagrant up puppetmaster puppetdb foreman compile
     uncomment the additional section in xl/hieradata/{environment/xl.yaml,node/{puppetmaster,compile}.yaml}
     comment the additional foreman section in xl/hieradata/environment/xl.yaml
-    vagrant provision puppetmaster puppetdb foreman activemq compile
+    vagrant provision puppetmaster puppetdb foreman compile
     vagrant up node
     
     foreman  => https://foreman.xl.vagrant
@@ -94,17 +94,17 @@ A vagrant setup that creates puppetmasters
     
     
 ### XXL
-7 nodes => puppetmaster (puppet + puppetmaster + mcollective) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + activemq (puppet + activemq) + compile (puppet + puppetmaster + mcollective) +  node (puppet + mcollective)
+6 nodes => puppetmaster (puppet + puppetmaster) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
 
     cd vagrant/xxl
     comment the additional db section in xxl/hieradata/node/foreman.yaml}
-    vagrant up puppetmaster db puppetdb foreman activemq compile
+    vagrant up puppetmaster db puppetdb foreman compile
     uncomment the additional section in xxl/hieradata/{environment/xxl.yaml,node/{puppetmaster,compile}.yaml}
     comment the additional foreman section in xl/hieradata/environment/xl.yaml
-    vagrant provision puppetmaster db puppetdb foreman activemq compile
+    vagrant provision puppetmaster db puppetdb foreman compile
     vagrant up node
     
-    foreman  => https://foreman.xl.vagrant
+    foreman  => https://foreman.xxl.vagrant
     username: admin
     passwd  : secret
-    puppetdb => http://puppetdb.xl.vagrant:8080
+    puppetdb => http://puppetdb.xxl.vagrant:8080

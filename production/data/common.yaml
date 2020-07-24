@@ -4,15 +4,11 @@ profiles::bootstrap::firewall::ensure: stopped
 profiles::bootstrap::puppet: true
 profiles::bootstrap::puppet::autosign_domains:
   - '*.vagrant'
-  - '*.test'
-profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/hieradata"
+profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/data"
 profiles::bootstrap::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
 profiles::bootstrap::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
+profiles::bootstrap::ntp: true
 profiles::database::postgresql::manage_package_repo: true
-# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
-#profiles::cache::memcached::max_memory: 1024
-profiles::orchestration::mcollective::middleware_hosts:
- - puppetmaster.%{::environment}.vagrant
 profiles::puppet::foreman::settings:
   enc_environment:
     value: false

@@ -3,11 +3,9 @@ profiles::bootstrap::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::bootstrap::puppet::server_foreman: true
 profiles::bootstrap::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::bootstrap::puppet::server_reports: 'store, foreman'
-profiles::bootstrap::puppet::server_storeconfigs_backend: 'puppetdb'
+profiles::bootstrap::puppet::server_storeconfigs: true
 profiles::bootstrap::repos: true
 profiles::bootstrap::repositories::epel: true
-# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
-#profiles::cache::memcached: true
 profiles::database::postgresql: true
 profiles::puppet::foreman: true
 profiles::puppet::foreman_proxy: true

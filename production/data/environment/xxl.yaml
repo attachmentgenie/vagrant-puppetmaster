@@ -8,8 +8,6 @@ profiles::bootstrap::repositories::epel: true
 profiles::bootstrap::repositories::puppetlabs_deps: true
 profiles::database::postgresql::ip_mask_allow_all_users: '0.0.0.0/0'
 profiles::database::postgresql::listen_address: '*'
-profiles::orchestration::mcollective: true
-profiles::orchestration::mcollective::client: true
 profiles::puppet::foreman::db_host: db.%{::environment}.vagrant
 profiles::puppet::foreman::settings:
   enc_environment:
@@ -21,9 +19,6 @@ profiles::puppet::foreman::settings:
   require_ssl_smart_proxies:
     value: false
 profiles::puppet::puppetdb::database_host: db.%{::environment}.vagrant
-# These parameters should ONLY be set when the activemq node has been setup
-#profiles::orchestration::mcollective::middleware_hosts:
-# - activemq.%{::environment}.vagrant
 # These parameters should NOT be set when the foreman node has been setup
 profiles::bootstrap::puppet::server_external_nodes: ''
 # These parameters should ONLY be set when the foreman node has been setup.
@@ -35,4 +30,4 @@ profiles::bootstrap::puppet::server_external_nodes: ''
 #profiles::bootstrap::puppet::server_reports: 'store, foreman'
 # These parameters should ONLY be set when the puppetdb node has been setup
 #profiles::bootstrap::puppet::server_puppetdb_host: puppetdb.%{::environment}.vagrant
-#profiles::bootstrap::puppet::server_storeconfigs_backend: 'puppetdb'
+#profiles::bootstrap::puppet::server_storeconfigs: true

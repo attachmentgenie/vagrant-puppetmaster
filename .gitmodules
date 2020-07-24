@@ -34,15 +34,9 @@
 [submodule "modules/foreman_proxy"]
 	path = production/modules/foreman_proxy
 	url = git@github.com:theforeman/puppet-foreman_proxy.git
-[submodule "modules/mcollective"]
-	path = production/modules/mcollective
-	url = git@github.com:voxpupuli/puppet-mcollective.git
 [submodule "modules/datacat"]
 	path = production/modules/datacat
 	url = git@github.com:richardc/puppet-datacat.git
-[submodule "modules/activemq"]
-	path = production/modules/activemq
-	url = git@github.com:puppetlabs/puppetlabs-activemq.git
 [submodule "modules/timezone"]
 	path = production/modules/timezone
 	url = git@github.com:attachmentgenie/attachmentgenie-timezone.git
@@ -55,9 +49,6 @@
 [submodule "modules/git"]
 	path = production/modules/git
 	url = git@github.com:puppetlabs/puppetlabs-git.git
-[submodule "modules/memcached"]
-	path = production/modules/memcached
-	url = git@github.com:saz/puppet-memcached.git
 [submodule "modules/roles"]
 	path = production/modules/roles
 	url = git@github.com:attachmentgenie/attachmentgenie-roles.git

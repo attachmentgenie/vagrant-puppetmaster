@@ -5,5 +5,3 @@ profiles::bootstrap::puppet::runinterval: 300
 profiles::bootstrap::puppet::splaylimit: 300s
 profiles::bootstrap::repositories::epel: false
 profiles::bootstrap::repositories::puppetlabs_deps: false
-profiles::orchestration::mcollective::client: false
-profiles::puppet::r10k::mcollective: false

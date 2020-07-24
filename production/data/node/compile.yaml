@@ -2,21 +2,16 @@
 classes:
   - roles::puppetmaster
 profiles::bootstrap::puppet::allow_any_crl_auth: false
-profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppet/environments/%%{}{environment}/hieradata"
+profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppet/environments/%%{}{environment}/data"
 profiles::bootstrap::puppet::runmode: none
 profiles::bootstrap::puppet::server: true
 profiles::bootstrap::puppet::server_ca: false
 profiles::bootstrap::puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8140"
-# Due to http://projects.theforeman.org/issues/20457 we cant enable memcache for foreman 1.16
-#profiles::cache::memcached: false
 profiles::database::postgresql: false
-profiles::mq::activemq: false
-profiles::orchestration::mcollective: true
 profiles::puppet::foreman: false
 profiles::puppet::puppetdb: false
 profiles::puppet::puppetmaster: true
 profiles::puppet::r10k: true
-profiles::puppet::r10k::mcollective: true
 profiles::puppet::r10k::puppet_repo_url: 'https://github.com/attachmentgenie/r10k-multi-puppetmaster.git'
 # The parameters should only be set when the foreman node has been setup
 #profiles::puppet::foreman_proxy: true

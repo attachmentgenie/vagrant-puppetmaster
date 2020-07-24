@@ -1,7 +1,7 @@
 ---
 nodes:
     - name: puppetmaster
-      box: bento/centos-7.6
+      box: bento/centos-7.8
       cpus: 2
       environment_path: '../../'
       hiera_config_path: '../../production/hiera.yaml'
@@ -16,7 +16,7 @@ nodes:
         - src: '../../production'
           dst: '/etc/puppetlabs/code/environments/xxs'
     - name: node
-      box: bento/centos-7.6
+      box: bento/centos-7.8
       hostname: node.xxs.vagrant
       ip: 192.168.21.140
       ports:
