@@ -42,15 +42,6 @@ nodes:
           host: 2737
       provision_type: puppet_agent
       puppetmaster: puppetmaster.xxl.vagrant
-    - name: activemq
-      box: bento/centos-7.8
-      hostname: activemq.xxl.vagrant
-      ip: 192.168.27.138
-      ports:
-        - guest: 22
-          host: 2738
-      provision_type: puppet_agent
-      puppetmaster: puppetmaster.xxl.vagrant
     - name: compile
       aliases: "puppet.xxl.vagrant"
       box: bento/centos-7.8
