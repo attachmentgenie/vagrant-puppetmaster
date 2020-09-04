@@ -108,6 +108,14 @@ Vagrant.configure("2") do |config|
             v.memory = node["memory"]
           end
         end
+        srv.vm.provider :libvirt do |v|
+          if node["cpus"]
+            v.cpus  = node["cpus"]
+          end
+          if node["memory"]
+            v.memory = node["memory"]
+          end
+        end
         srv.vm.network :private_network, ip: node["ip"]
         if node["aliases"]
           srv.hostmanager.aliases = node["aliases"]
