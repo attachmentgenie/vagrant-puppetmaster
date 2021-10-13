@@ -1,0 +1,10 @@
+2021-10-13T15:08:26.132320 INFO   [main] [Bolt::Logger] Loaded project from '/etc/puppetlabs/code/environments/xs/bolt'
+2021-10-13T15:08:26.132476 DEBUG  [main] [Bolt::Logger] Loaded configuration from /etc/puppetlabs/bolt/bolt-defaults.yaml
+2021-10-13T15:08:26.132602 WARN   [main] [Bolt::Logger] Bolt collects data about how you use it. You can opt out of providing this data.
+To learn how to disable data collection, or see what data Bolt collects and why,
+see http://pup.pt/bolt-analytics
+ [ID: analytics_opt_out]
+2021-10-13T15:08:26.163029 DEBUG  [main] [Bolt::Executor] Started with 100 max thread(s)
+2021-10-13T15:08:26.555332 DEBUG  [main] [Bolt::PAL] Loading modules from /opt/puppetlabs/bolt/lib/ruby/gems/2.7.0/gems/bolt-3.19.0/bolt-modules:/etc/puppetlabs/code/environments/xs/bolt/modules:/etc/puppetlabs/code/environments/xs/modules:/etc/puppetlabs/code/environments/xs/bolt/.modules:/opt/puppetlabs/bolt/lib/ruby/gems/2.7.0/gems/bolt-3.19.0/modules
+2021-10-13T15:08:26.556850 DEBUG  [main] [Bolt::Inventory] Loaded inventory from /etc/puppetlabs/code/environments/xs/bolt/inventory.yaml
+2021-10-13T15:08:26.561721 DEBUG  [main] [Bolt::PuppetDB::Client] Querying certnames

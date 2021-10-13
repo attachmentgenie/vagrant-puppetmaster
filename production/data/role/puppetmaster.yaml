@@ -3,7 +3,7 @@ classes:
   - roles::puppetmaster
 profiles::bootstrap::puppet::runmode: none
 profiles::bootstrap::puppet::server: true
-profiles::puppet::foreman_proxy::custom_repo: true
+profiles::orchestration::bolt: true
 profiles::puppet::foreman_proxy::puppetca: true
 profiles::puppet::foreman::plugins:
   puppetdb:

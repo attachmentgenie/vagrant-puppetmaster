@@ -56,15 +56,7 @@ A vagrant setup that creates puppetmasters
 
 
 ### M
-2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + bolt) + node (puppet)
-
-    cd vagrant/m
-    vagrant up
-    
-    foreman  => https://puppetmaster.m.vagrant
-    username: admin
-    passwd  : secret
-    puppetdb => http://puppetmaster.m.vagrant:8080
+Currently not in use.
 
 ### L
 3 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + bolt) + compile (puppet + puppetmaster) +  node (puppet)
