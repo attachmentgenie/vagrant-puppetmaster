@@ -1,0 +1,6 @@
+---
+name: puppetmaster
+modulepath:
+  - modules
+  - ../modules
+modules: []

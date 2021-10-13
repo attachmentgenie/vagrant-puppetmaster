@@ -37,14 +37,14 @@ A vagrant setup that creates puppetmasters
     vagrant up
 
 ### XS
-2 nodes => puppetmaster (puppet + puppetmaster + puppetdb) + node (puppet)
+2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + bolt) + node (puppet)
 
     cd vagrant/xs
     vagrant up
     puppetdb => http://puppetmaster.xs.vagrant:8080
 
 ### S
-2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman) + node (puppet)
+2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + bolt) + node (puppet)
 
     cd vagrant/s
     vagrant up
@@ -70,7 +70,7 @@ Currently not in use.
     puppetdb => http://puppetmaster.l.vagrant:8080
     
 ### XL
-5 nodes => puppetmaster (puppet + puppetmaster) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
+5 nodes => puppetmaster (puppet + puppetmaster + bolt) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
     
     cd vagrant/xl
     vagrant up puppetmaster puppetdb foreman compile
@@ -86,7 +86,7 @@ Currently not in use.
     
     
 ### XXL
-6 nodes => puppetmaster (puppet + puppetmaster) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
+6 nodes => puppetmaster (puppet + puppetmaster + bolt) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
 
     cd vagrant/xxl
     comment the additional db section in xxl/hieradata/node/foreman.yaml}

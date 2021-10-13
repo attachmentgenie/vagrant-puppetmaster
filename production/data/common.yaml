@@ -7,6 +7,15 @@ profiles::bootstrap::puppet::autosign_domains:
 profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/%%{}{environment}/data"
 profiles::bootstrap::puppet::puppetmaster: puppetmaster.%{::environment}.vagrant
 profiles::bootstrap::puppet::server_foreman_url: https://puppetmaster.%{::environment}.vagrant
+profiles::orchestration::bolt::default_config:
+  puppetdb:
+    server_urls:
+      - https://puppetmaster.%{::environment}.vagrant:8081
+    cacert: /etc/puppetlabs/puppet/ssl/certs/ca.pem
+    cert: /etc/puppetlabs/puppet/ssl/certs/%{::fqdn}.pem
+    key: /etc/puppetlabs/puppet/ssl/private_keys/%{::fqdn}.pem
+profiles::puppet::puppetdb::certificate_whitelist:
+  - puppetmaster.%{::environment}.vagrant
 profiles::bootstrap::ntp: true
 profiles::database::postgresql::manage_package_repo: true
 profiles::puppet::foreman::settings:

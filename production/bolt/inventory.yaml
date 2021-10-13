@@ -1,0 +1,8 @@
+groups:
+ - name: nodes
+   targets:
+      _plugin: puppetdb
+      query: nodes[certname] {}
+config:
+  ssh:
+    host-key-check: false
