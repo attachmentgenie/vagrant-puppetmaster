@@ -73,3 +73,6 @@
 [submodule "production/modules/redis"]
 	path = production/modules/redis
 	url = https://github.com/voxpupuli/puppet-redis.git
+[submodule "production/modules/puppetserver_foreman"]
+	path = production/modules/puppetserver_foreman
+	url = https://github.com/theforeman/puppet-puppetserver_foreman.git
