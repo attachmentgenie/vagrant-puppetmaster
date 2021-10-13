@@ -37,14 +37,14 @@ A vagrant setup that creates puppetmasters
     vagrant up
 
 ### XS
-2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + bolt) + node (puppet)
+2 nodes => puppetmaster (puppet + puppetmaster + postgresql + puppetdb + bolt) + node (puppet)
 
     cd vagrant/xs
     vagrant up
     puppetdb => http://puppetmaster.xs.vagrant:8080
 
 ### S
-2 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + bolt) + node (puppet)
+2 nodes => puppetmaster (puppet + puppetmaster + postgresql + puppetdb + foreman + bolt) + node (puppet)
 
     cd vagrant/s
     vagrant up
@@ -59,7 +59,7 @@ A vagrant setup that creates puppetmasters
 Currently not in use.
 
 ### L
-3 nodes => puppetmaster (puppet + puppetmaster + puppetdb + foreman + bolt) + compile (puppet + puppetmaster) +  node (puppet)
+3 nodes => puppetmaster (puppet + puppetmaster + postgresql + puppetdb + foreman + bolt) + compile (puppet + puppetmaster) +  node (puppet)
 
     cd vagrant/l
     vagrant up
@@ -70,7 +70,7 @@ Currently not in use.
     puppetdb => http://puppetmaster.l.vagrant:8080
     
 ### XL
-5 nodes => puppetmaster (puppet + puppetmaster + bolt) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
+5 nodes => puppetmaster (puppet + puppetmaster + bolt) + puppetdb (puppet + postgresql + puppetdb) + foreman (puppet + postgresql + foreman) + compile (puppet + puppetmaster) +  node (puppet)
     
     cd vagrant/xl
     vagrant up puppetmaster puppetdb foreman compile

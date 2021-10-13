@@ -1,6 +1,7 @@
 ---
 classes:
   - roles::puppetmaster
+profiles::bootstrap::repositories::foreman: true
 profiles::bootstrap::puppet::allow_any_crl_auth: false
 profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppet/environments/%%{}{environment}/data"
 profiles::bootstrap::puppet::runmode: none
@@ -16,3 +17,4 @@ profiles::puppet::r10k::puppet_repo_url: 'https://github.com/attachmentgenie/r10
 # The parameters should only be set when the foreman node has been setup
 #profiles::puppet::foreman_proxy: true
 profiles::puppet::foreman_proxy::puppetca: false
+profiles::testing::develop: true

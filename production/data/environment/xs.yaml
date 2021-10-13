@@ -1,4 +1,5 @@
 ---
+profiles::bootstrap::repositories::foreman: false
 profiles::bootstrap::puppet::server_external_nodes: ''
 profiles::bootstrap::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
 profiles::bootstrap::puppet::server_reports: 'store, puppetdb'

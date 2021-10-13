@@ -1,6 +1,7 @@
 ---
 classes:
   - roles::puppetmaster
+profiles::bootstrap::repositories::foreman: true
 profiles::bootstrap::puppet::runmode: none
 profiles::bootstrap::puppet::server: true
 profiles::orchestration::bolt: true

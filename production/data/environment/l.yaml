@@ -15,3 +15,6 @@ profiles::puppet::foreman: true
 profiles::puppet::foreman_proxy: true
 profiles::puppet::foreman_proxy::puppetca: true
 profiles::puppet::puppetdb: true
+profiles::puppet::puppetdb::certificate_whitelist:
+  - compile.%{::environment}.vagrant
+  - puppetmaster.%{::environment}.vagrant
