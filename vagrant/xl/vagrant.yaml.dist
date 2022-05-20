@@ -7,7 +7,7 @@ nodes:
       hiera_config_path: '../../production/hiera.yaml'
       hiera_path: '../../production/data'
       hostname: puppetmaster.xl.vagrant
-      ip: 192.168.26.130
+      ip: 192.168.56.130
       memory: 4096
       ports:
         - guest: 22
@@ -18,7 +18,7 @@ nodes:
     - name: puppetdb
       box: bento/centos-7.9
       hostname: puppetdb.xl.vagrant
-      ip: 192.168.26.136
+      ip: 192.168.56.136
       ports:
         - guest: 22
           host: 2636
@@ -27,7 +27,7 @@ nodes:
     - name: foreman
       box: bento/centos-7.9
       hostname: foreman.xl.vagrant
-      ip: 192.168.26.137
+      ip: 192.168.56.137
       ports:
         - guest: 22
           host: 2637
@@ -37,7 +37,7 @@ nodes:
       aliases: "puppet.xl.vagrant"
       box: bento/centos-7.9
       hostname: compile.xl.vagrant
-      ip: 192.168.26.139
+      ip: 192.168.56.139
       ports:
         - guest: 22
           host: 2639
@@ -47,7 +47,7 @@ nodes:
     - name: node
       box: bento/centos-7.9
       hostname: node.xl.vagrant
-      ip: 192.168.26.140
+      ip: 192.168.56.140
       options: '-t --environment production --ca_server puppetmaster.xl.vagrant'
       ports:
         - guest: 22
@@ -55,5 +55,4 @@ nodes:
       provision_type: puppet_agent
       puppetmaster: compile.xl.vagrant
 puppet_environment: xl
-puppet_version: 6.25.0
 virtualbox_group: '/Vagrant/puppetmaster'
