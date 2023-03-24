@@ -1,6 +1,6 @@
-#  vagrant-puppetmaster
+#  vagrant-puppetserver
 
-A vagrant setup that creates puppetmasters
+A vagrant setup that creates puppetservers
 
 ## Requirements
     Virtualbox                  => https://www.virtualbox.org
@@ -31,52 +31,57 @@ A vagrant setup that creates puppetmasters
 ## Environments
 
 ### XXS
-2 nodes => puppetmaster (puppet + puppetmaster) + node (puppet)
+2 nodes => puppetserver (puppet + puppetserver) + node (puppet)
 
     cd vagrant/xxs
     vagrant up
 
 ### XS
-2 nodes => puppetmaster (puppet + puppetmaster + postgresql + puppetdb + bolt) + node (puppet)
+2 nodes => puppetserver (puppet + puppetserver + postgresql + puppetdb + bolt) + node (puppet)
 
     cd vagrant/xs
     vagrant up
-    puppetdb => http://puppetmaster.xs.vagrant:8080
+    puppetdb => http://puppetserver.xs.vagrant:8080
 
 ### S
-2 nodes => puppetmaster (puppet + puppetmaster + postgresql + puppetdb + foreman + bolt) + node (puppet)
+2 nodes => puppetserver (puppet + puppetserver + postgresql + puppetdb + puppetboard + bolt) + node (puppet)
 
     cd vagrant/s
     vagrant up
     
-    foreman  => https://puppetmaster.s.vagrant
-    username: admin
-    passwd  : secret
-    puppetdb => http://puppetmaster.s.vagrant:8080
-
+    puppetboard  => http://puppetserver.s.vagrant:8088
+    puppetdb => http://puppetserver.s.vagrant:8080
 
 ### M
-Currently not in use.
+2 nodes => puppetserver (puppet + puppetserver + postgresql + puppetdb + foreman + bolt) + node (puppet)
+
+    cd vagrant/s
+    vagrant up
+    
+    foreman  => https://puppetserver.m.vagrant
+    username: admin
+    passwd  : secret
+    puppetdb => http://puppetserver.m.vagrant:8080
 
 ### L
-3 nodes => puppetmaster (puppet + puppetmaster + postgresql + puppetdb + foreman + bolt) + compile (puppet + puppetmaster) +  node (puppet)
+3 nodes => puppetserver (puppet + puppetserver + postgresql + puppetdb + foreman + bolt) + compile (puppet + puppetserver) +  node (puppet)
 
     cd vagrant/l
     vagrant up
     
-    foreman  => https://puppetmaster.l.vagrant
+    foreman  => https://puppetserver.l.vagrant
     username: admin
     passwd  : secret
-    puppetdb => http://puppetmaster.l.vagrant:8080
+    puppetdb => http://puppetserver.l.vagrant:8080
     
 ### XL
-5 nodes => puppetmaster (puppet + puppetmaster + bolt) + puppetdb (puppet + postgresql + puppetdb) + foreman (puppet + postgresql + foreman) + compile (puppet + puppetmaster) +  node (puppet)
+5 nodes => puppetserver (puppet + puppetserver + bolt) + puppetdb (puppet + postgresql + puppetdb) + foreman (puppet + postgresql + foreman) + compile (puppet + puppetserver) +  node (puppet)
     
     cd vagrant/xl
-    vagrant up puppetmaster puppetdb foreman compile
-    uncomment the additional section in xl/hieradata/{environment/xl.yaml,node/{puppetmaster,compile}.yaml}
+    vagrant up puppetserver puppetdb foreman compile
+    uncomment the additional section in xl/hieradata/{environment/xl.yaml,node/{puppetserver,compile}.yaml}
     comment the additional foreman section in xl/hieradata/environment/xl.yaml
-    vagrant provision puppetmaster puppetdb foreman compile
+    vagrant provision puppetserver puppetdb foreman compile
     vagrant up node
     
     foreman  => https://foreman.xl.vagrant
@@ -86,14 +91,14 @@ Currently not in use.
     
     
 ### XXL
-6 nodes => puppetmaster (puppet + puppetmaster + bolt) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetmaster) +  node (puppet)
+6 nodes => puppetserver (puppet + puppetserver + bolt) + db (puppet + postgresql) + puppetdb (puppet + puppetdb) + foreman (puppet + foreman) + compile (puppet + puppetserver) +  node (puppet)
 
     cd vagrant/xxl
     comment the additional db section in xxl/hieradata/node/foreman.yaml}
-    vagrant up puppetmaster db puppetdb foreman compile
-    uncomment the additional section in xxl/hieradata/{environment/xxl.yaml,node/{puppetmaster,compile}.yaml}
+    vagrant up puppetserver db puppetdb foreman compile
+    uncomment the additional section in xxl/hieradata/{environment/xxl.yaml,node/{puppetserver,compile}.yaml}
     comment the additional foreman section in xl/hieradata/environment/xl.yaml
-    vagrant provision puppetmaster db puppetdb foreman compile
+    vagrant provision puppetserver db puppetdb foreman compile
     vagrant up node
     
     foreman  => https://foreman.xxl.vagrant

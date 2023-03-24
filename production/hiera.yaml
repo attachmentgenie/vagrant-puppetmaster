@@ -2,7 +2,9 @@
 version: 5
 hierarchy:
   - name: "Per-node data"
-    path: "node/%{::hostname}.yaml"
+    path: "node/%{::fqdn}.yaml"
+  - name: "Per-role data"
+    path: "role/%{::hostname}.yaml"
   - name: "Environment"
     path: "environment/%{::environment}.yaml"
   - name: "Versions"

@@ -1,6 +1,6 @@
 ---
 profiles::bootstrap::puppet::environment: production
-profiles::bootstrap::puppet::puppetmaster: "puppetmaster.%{::environment}.vagrant"
+profiles::bootstrap::puppet::puppetmaster: "puppetserver.%{::environment}.vagrant"
 profiles::bootstrap::puppet::runinterval: 300
 profiles::bootstrap::puppet::splaylimit: 300s
 profiles::bootstrap::repositories::epel: false

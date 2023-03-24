@@ -7,13 +7,13 @@ profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppet/environments/%%{}{
 profiles::bootstrap::puppet::runmode: none
 profiles::bootstrap::puppet::server: true
 profiles::bootstrap::puppet::server_ca: false
-profiles::bootstrap::puppet::server_ca_proxy: "https://puppetmaster.l.vagrant:8140"
+profiles::bootstrap::puppet::server_ca_proxy: "https://puppetserver.l.vagrant:8140"
 profiles::database::postgresql: false
 profiles::puppet::foreman: false
 profiles::puppet::puppetdb: false
 profiles::puppet::puppetmaster: true
-profiles::puppet::r10k: true
-profiles::puppet::r10k::puppet_repo_url: 'https://github.com/attachmentgenie/r10k-multi-puppetmaster.git'
+profiles::puppet::g10k: true
+profiles::puppet::g10k::puppet_repo_url: 'https://github.com/attachmentgenie/r10k-multi-puppetmaster.git'
 # The parameters should only be set when the foreman node has been setup
 #profiles::puppet::foreman_proxy: true
 profiles::puppet::foreman_proxy::puppetca: false

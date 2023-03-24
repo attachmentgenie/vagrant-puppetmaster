@@ -43,9 +43,6 @@
 [submodule "modules/concat"]
 	path = production/modules/concat
 	url = git@github.com:puppetlabs/puppetlabs-concat.git
-[submodule "modules/r10k"]
-	path = production/modules/r10k
-	url = git@github.com:voxpupuli/puppet-r10k.git
 [submodule "modules/git"]
 	path = production/modules/git
 	url = git@github.com:puppetlabs/puppetlabs-git.git
@@ -76,3 +73,12 @@
 [submodule "production/modules/puppetserver_foreman"]
 	path = production/modules/puppetserver_foreman
 	url = https://github.com/theforeman/puppet-puppetserver_foreman.git
+[submodule "production/modules/docker"]
+	path = production/modules/docker
+	url = https://github.com/puppetlabs/puppetlabs-docker.git
+[submodule "production/modules/g10k"]
+	path = production/modules/g10k
+	url = https://bitbucket.org/landcareresearch/puppet-g10k.git
+[submodule "production/modules/archive"]
+	path = production/modules/archive
+	url = https://github.com/voxpupuli/puppet-archive.git

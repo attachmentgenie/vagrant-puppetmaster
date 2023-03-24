@@ -6,23 +6,23 @@ nodes:
       environment_path: '../../'
       hiera_config_path: '../../production/hiera.yaml'
       hiera_path: '../../production/data'
-      hostname: puppetserver.xs.vagrant
+      hostname: puppetserver.m.vagrant
       ip: 192.168.56.130
       memory: 4096
       ports:
         - guest: 22
-          host: 2230
+          host: 2330
       synced_folders:
         - src: '../../production'
-          dst: '/etc/puppetlabs/code/environments/xs'
+          dst: '/etc/puppetlabs/code/environments/s'
     - name: node
       box: bento/centos-7.9
-      hostname: node.xs.vagrant
+      hostname: node.m.vagrant
       ip: 192.168.56.140
       ports:
         - guest: 22
-          host: 2240
+          host: 2340
       provision_type: puppet_agent
-      puppetserver: puppetserver.xs.vagrant
-puppet_environment: xs
+      puppetserver: puppetserver.m.vagrant
+puppet_environment: m
 virtualbox_group: '/Vagrant/puppetmaster'

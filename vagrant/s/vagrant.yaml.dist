@@ -1,12 +1,12 @@
 ---
 nodes:
-    - name: puppetmaster
+    - name: puppetserver
       box: bento/centos-7.9
       cpus: 2
       environment_path: '../../'
       hiera_config_path: '../../production/hiera.yaml'
       hiera_path: '../../production/data'
-      hostname: puppetmaster.s.vagrant
+      hostname: puppetserver.s.vagrant
       ip: 192.168.56.130
       memory: 4096
       ports:
@@ -23,6 +23,6 @@ nodes:
         - guest: 22
           host: 2340
       provision_type: puppet_agent
-      puppetmaster: puppetmaster.s.vagrant
+      puppetserver: puppetserver.s.vagrant
 puppet_environment: s
 virtualbox_group: '/Vagrant/puppetmaster'

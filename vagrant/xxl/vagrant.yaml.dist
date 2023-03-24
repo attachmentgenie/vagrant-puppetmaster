@@ -1,12 +1,12 @@
 ---
 nodes:
-    - name: puppetmaster
+    - name: puppetserver
       box: bento/centos-7.9
       cpus: 2
       environment_path: '../../'
       hiera_config_path: '../../production/hiera.yaml'
       hiera_path: '../../production/data'
-      hostname: puppetmaster.xxl.vagrant
+      hostname: puppetserver.xxl.vagrant
       ip: 192.168.56.130
       memory: 4096
       ports:
@@ -23,7 +23,7 @@ nodes:
         - guest: 22
           host: 2735
       provision_type: puppet_agent
-      puppetmaster: puppetmaster.xxl.vagrant
+      puppetserver: puppetserver.xxl.vagrant
     - name: puppetdb
       box: bento/centos-7.9
       hostname: puppetdb.xxl.vagrant
@@ -32,7 +32,7 @@ nodes:
         - guest: 22
           host: 2736
       provision_type: puppet_agent
-      puppetmaster: puppetmaster.xxl.vagrant
+      puppetserver: puppetserver.xxl.vagrant
     - name: foreman
       box: bento/centos-7.9
       hostname: foreman.xxl.vagrant
@@ -41,7 +41,7 @@ nodes:
         - guest: 22
           host: 2737
       provision_type: puppet_agent
-      puppetmaster: puppetmaster.xxl.vagrant
+      puppetserver: puppetserver.xxl.vagrant
     - name: compile
       aliases: "puppet.xxl.vagrant"
       box: bento/centos-7.9
@@ -50,18 +50,18 @@ nodes:
       ports:
         - guest: 22
           host: 2739
-      provision_shell: 'r10k deploy environment -pv'
+      provision_shell: 'g10k deploy environment -pv'
       provision_type: puppet_agent
-      puppetmaster: puppetmaster.xxl.vagrant
+      puppetserver: puppetserver.xxl.vagrant
     - name: node
       box: bento/centos-7.9
       hostname: node.xxl.vagrant
       ip: 192.168.56.140
-      options: '-t --environment production --ca_server puppetmaster.xxl.vagrant'
+      options: '-t --environment production --ca_server puppetserver.xxl.vagrant'
       ports:
         - guest: 22
           host: 2740
       provision_type: puppet_agent
-      puppetmaster: compile.xxl.vagrant
+      puppetserver: compile.xxl.vagrant
 puppet_environment: xxl
-virtualbox_group: '/Vagrant/puppetmaster'
+virtualbox_group: '/Vagrant/puppetserver'

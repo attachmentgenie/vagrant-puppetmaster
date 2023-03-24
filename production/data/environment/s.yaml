@@ -1,13 +1,16 @@
 ---
 profiles::bootstrap::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
-profiles::bootstrap::puppet::server_foreman: true
-profiles::bootstrap::puppet::server_puppetdb_host: puppetmaster.%{::environment}.vagrant
-profiles::bootstrap::puppet::server_reports: 'store, foreman'
+profiles::bootstrap::puppet::server_external_nodes: ''
+profiles::bootstrap::puppet::server_puppetdb_host: puppetserver.%{::environment}.vagrant
+profiles::bootstrap::puppet::server_reports: 'store, puppetdb'
 profiles::bootstrap::puppet::server_storeconfigs: true
-profiles::bootstrap::repos: true
-profiles::bootstrap::repositories::epel: true
 profiles::database::postgresql: true
-profiles::puppet::foreman: true
-profiles::puppet::foreman_proxy: true
-profiles::puppet::foreman_proxy::puppetca: true
+profiles::puppet::puppetboard: true
+profiles::puppet::puppetboard::docker_env_parameters: [
+  'FAVORITE_ENVS=%{::environment}',
+  'DEFAULT_ENVIRONMENT=%{::environment}',
+  'PUPPETDB_HOST=127.0.0.1',
+  'PUPPETDB_PORT=8080',
+  'PUPPETBOARD_PORT=8088',
+]
 profiles::puppet::puppetdb: true

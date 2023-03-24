@@ -60,9 +60,9 @@ Vagrant.configure("2") do |config|
   if Vagrant.has_plugin?("vagrant-triggers")
     config.trigger.after [:destroy] do
       target = @machine.config.vm.hostname.to_s
-      puppetmaster = "puppetmaster"
-      if target != puppetmaster
-        system("vagrant ssh #{puppetmaster} -c 'sudo /opt/puppetlabs/bin/puppet cert clean #{target}'" )
+      puppetserver = "puppetserver"
+      if target != puppetserver
+        system("vagrant ssh #{puppetserver} -c 'sudo /opt/puppetlabs/bin/puppet cert clean #{target}'" )
       end
     end
   end
@@ -133,10 +133,10 @@ Vagrant.configure("2") do |config|
             else
               puppet.options = "-t --environment #{environment}"
             end
-            if node["puppetmaster"]
-              puppet.puppet_server = node["puppetmaster"]
+            if node["puppetserver"]
+              puppet.puppet_server = node["puppetserver"]
             else
-              puppet.puppet_server = "puppetmaster.#{environment}.vagrant"
+              puppet.puppet_server = "puppetserver.#{environment}.vagrant"
             end
           end
         else
